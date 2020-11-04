@@ -41,12 +41,9 @@
         "psr-4": {
             "App\\": "app/"
         },
-        files:[
-            "app/helpers/FormatTime.php"
-        ]
         "classmap": [
             "database/seeds",
-            "database/factories"        
+            "database/factories"
         ]
     },
     "autoload-dev": {
