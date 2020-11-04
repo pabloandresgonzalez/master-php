@@ -16,7 +16,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "simplesoftwareio/simple-qrcode": "~3",
-        "spatie/laravel-permission": "^3.16"
+        "spatie/laravel-permission": "^3.16",
+        "app/helpers/FormatTime.php"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
@@ -33,7 +34,7 @@
     "extra": {
         "laravel": {
             "dont-discover": [
-                "FormatTime"
+                "app/helpers/FormatTime.php"
             ]
         }
     },
@@ -49,7 +50,10 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "app/helpers/FormatTime.php"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
