@@ -33,7 +33,7 @@
     "extra": {
         "laravel": {
             "dont-discover": [
-                "app/helpers/formatTime.php"
+                "app/helpers/FormatTime.php"
             ]
         }
     },
@@ -51,7 +51,7 @@
             "Tests\\": "tests/"
         },
         "files": [
-            "app/helpers/formatTime.php"
+            "app/helpers/FormatTime.php"
         ]
     },
     "minimum-stability": "dev",
