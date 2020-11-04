@@ -13,7 +13,7 @@ class FormatTimeServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        require_once '/Helpers/FormatTime.php';
+        require_once app_path().'/helpers/FormatTime.php';
     }
 
     /**
