@@ -102,14 +102,40 @@
                     </div>
                 </div>
 
-
                 <div class="form-group row mb-0">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary">
                             Guardar cambios
                         </button>
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger activoborrar " data-toggle="modal" data-target="#exampleModal">
+                            Eliminar
+                        </button>
                     </div>
                 </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Confirma la eliminacion de la bicileta</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Esta acción eliminará definitivamente el activo y no se podrá recuperar después. ¿Estás seguro de que deseas continuar?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                      <a href="{{ route('bici.delete', ['id' => $bicicleta->id]) }}" class="btn btn-danger">Eliminar</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
             </form>
         </div>
     </div>

@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-    
+
       @if(session('message'))
       <div class="alert alert-success">
         {{ session('message') }}
@@ -16,12 +16,12 @@
 
           <div class="prestamo" >
 
-            {{ 'Activo # '.$activo->id }}          
-            <span class="ciudad">              
+            {{ 'Activo # '.$activo->id }}
+            <span class="ciudad">
               {{' | '.$activo->nombre }}
             </span>
             </a>
-            
+
             <div class="activo" >
             {!! QrCode::size(70)->generate($activo->serial); !!}
             </div>
@@ -37,24 +37,24 @@
           {{'Placa: '.$activo->placa }} <br>
           {{'Modelo: '.$activo->modelo }} <br>
           {{'Serial: '.$activo->serial }} <br>
-          {{'Descripcion: '.$activo->descripcion }} <br>          
+          {{'Descripcion: '.$activo->descripcion }} <br>
           {{'Creado por: '.$activo->user_name.' | '.$activo->created_at }} <br>
-          
+
         </div>
       </div>
 
       <a href="{{ route('home') }}" class="btn btn-light btn- activo">Regresar</a>
-      
-      @if(Auth::user()->role == 'admin')      
+
+      @if(Auth::user()->role == 'admin')
       <div class="actions">
-        <a href="{{ route('activo.edit', ['id' => $activo->id ]) }}" class="btn  btn-primary">Actualizar</a> 
+        <a href="{{ route('activo.edit', ['id' => $activo->id ]) }}" class="btn  btn-primary">Actualizar</a>
         <!-- <a href="{{ route('activo.delete', ['id' => $activo->id]) }}" class="btn btn-sm btn-danger activoborrar">Eliminar</a> -->
 
 
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-danger activoborrar " data-toggle="modal" data-target="#exampleModal">
         Eliminar
-      </button>      
+      </button>
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -71,7 +71,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-              <a href="{{ route('activo.delete', ['id' => $activo->id]) }}" class="btn btn-danger">Eliminar</a>              
+              <a href="{{ route('activo.delete', ['id' => $activo->id]) }}" class="btn btn-danger">Eliminar</a>
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@
 
       </div>
       @endif
-      
+
     </div>
   </div>
   @endsection

@@ -64,6 +64,7 @@ Route::post('/subir-bici', 'BiciController@savebici')->name('bici.create');
 Route::get('/bici/editar/edit/{id}', 'BiciController@edit')->name('bici.edit');
 Route::post('/bici/update', 'BiciController@updatebici')->name('bici.update');
 Route::get('/bici/avatar/{filename?}', 'BiciController@getImage')->name('bici.avatar');
+Route::get('/bici/delete/{id}', 'BiciController@delete')->name('bici.delete');
 
 
 //Prestamo TI
