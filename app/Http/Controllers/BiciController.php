@@ -190,16 +190,7 @@ class BiciController extends Controller
     $user = \Auth::user();
     $bicicleta = Bicicleta::find($id);
 
-    //if($user->role == 'user' ){
-
-    //Recoger los datos del formulario
-
-
       $bicicleta->delete();
-
-    //}else {
-      //$message = array('message' => 'Algo salio mal la bicicleta no se ha eliminado');
-    //}
 
     return redirect()->route('bicicleta')->with([
                   'message' => 'Bicicleta eliminado correctamente!!'
