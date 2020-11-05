@@ -88,7 +88,7 @@ class UserController extends Controller
       //Poner nombre unico
       $image_path_name = time() . $image_path->getClientOriginalName();
 
-      //Guardarla en la carpeta storage (storage/app/users)        
+      //Guardarla en la carpeta storage (storage/app/users)
       Storage::disk('users')->put($image_path_name, File::get($image_path));
 
       //Seteo el nombre de la imagen en el objeto
@@ -138,31 +138,31 @@ class UserController extends Controller
     //Validacion del formulario
     $validate = $this->validate($request, [
       //'role' => 'required|string|max:255',
-      'name' => 'required|string|max:255',
-      'surname' => 'required|string|max:255',
-      'cedula' => 'required|string|max:255',
+      //'name' => 'required|string|max:255',
+      //'surname' => 'required|string|max:255',
+      //'cedula' => 'required|string|max:255',
       //'email' => 'required|string|email|max:255',
-      'celular' => 'required|max:12'
+      //'celular' => 'required|max:12'
     ]);
 
     //Recoger los datos del formulario
     $user_id = $request->input('user_id');
     $role = $request->input('role');
-    $name = $request->input('name');
-    $surname = $request->input('surname');
-    $cedula = $request->input('cedula');
+    //$name = $request->input('name');
+    //$surname = $request->input('surname');
+    //$cedula = $request->input('cedula');
     //$email = $request->input('email');
-    $celular = $request->input('celular');
+    //$celular = $request->input('celular');
 
 
     //Asignar nuevos valores al objeto del usuario
     $user = User::find($user_id);
     $user->role = $role;
-    $user->name = $name;
-    $user->surname = $surname;
-    $user->cedula = $cedula;
+    //$user->name = $name;
+    //$user->surname = $surname;
+    //$user->cedula = $cedula;
     //$user->email = $email;
-    $user->celular = $celular;
+    //$user->celular = $celular;
 
     //Subir la imagen
     $image_path = $request->file('image_path');
@@ -170,7 +170,7 @@ class UserController extends Controller
       //Poner nombre unico
       $image_path_name = time() . $image_path->getClientOriginalName();
 
-      //Guardarla en la carpeta storage (storage/app/users)        
+      //Guardarla en la carpeta storage (storage/app/users)
       Storage::disk('users')->put($image_path_name, File::get($image_path));
 
       //Seteo el nombre de la imagen en el objeto
@@ -181,7 +181,7 @@ class UserController extends Controller
     $user->update();
 
     return redirect()->route('user.index')
-      ->with(['message' => 'Usuario actualizado correctamente!!']);
+      ->with(['message' => 'Rol de usuario actualizado correctamente!!']);
   }
 
 

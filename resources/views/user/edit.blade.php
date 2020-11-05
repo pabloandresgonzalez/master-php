@@ -12,12 +12,12 @@
     @endif
 
       <div class="card">
-        <div class="card-header">Editar rol de usuario</div>
+        <div class="card-header">Editar rol de usuario  <strong>{{ $user->name }}</strong> </div>
 
         <div class="card-body">
           <form method="POST" action="{{ route('user.updaterol') }}" enctype="multipart/form-data">
             @csrf
-            
+
 
             <div class="form-group row">
               <label for="role" class="col-md-3 col-form-label text-md-right">Cambiar rol</label>
@@ -33,12 +33,12 @@
                 @if($errors->has('role'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('role') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
 
-            <hr>  
+            <hr>
 
             <div class="form-group row ">
               <label for="role" class="col-md-3 col-form-label text-md-right">Id</label>
@@ -48,11 +48,11 @@
                 @if($errors->has('role'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('role') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
-            </div>           
-            
+            </div>
+
             <div class="form-group row ">
               <label for="role" class="col-md-3 col-form-label text-md-right">{{ __('Rol') }}</label>
               <div class="col-md-6">
@@ -61,7 +61,7 @@
                 @if($errors->has('role'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('role') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -69,12 +69,12 @@
             <div class="form-group row">
               <label for="name" class="col-md-3 col-form-label text-md-right">{{ __('Nombres') }}</label>
               <div class="col-md-6">
-                <input id="name" type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ $user->name }}" required />
+                <input id="name" type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ $user->name }}" readonly="readonly" required />
 
                 @if($errors->has('name'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('name') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -82,26 +82,26 @@
             <div class="form-group row">
               <label for="surname" class="col-md-3 col-form-label text-md-right">{{ __('Apellidos') }}</label>
               <div class="col-md-6">
-                <input id="surname" type="text" name="surname" class="form-control {{ $errors->has('surname') ? 'is-invalid' : '' }}" value="{{ $user->surname }}" required />
+                <input id="surname" type="text" name="surname" class="form-control {{ $errors->has('surname') ? 'is-invalid' : '' }}" value="{{ $user->surname }}" readonly="readonly" required />
 
                 @if($errors->has('surname'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('surname') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
-            
+
 
             <div class="form-group row">
               <label for="cedula" class="col-md-3 col-form-label text-md-right">{{ __('Idetificacion') }}</label>
               <div class="col-md-6">
-                <input id="cedula" type="text" name="cedula" class="form-control {{ $errors->has('cedula') ? 'is-invalid' : '' }}" value="{{ $user->cedula }}" required />
+                <input id="cedula" type="text" name="cedula" class="form-control {{ $errors->has('cedula') ? 'is-invalid' : '' }}" value="{{ $user->cedula }}" readonly="readonly" required />
 
                 @if($errors->has('cedula'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('cedula') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -110,7 +110,7 @@
               <label for="email" class="col-md-3 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                 <div class="col-md-6">
-                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email">
+                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" readonly="readonly" required autocomplete="email">
 
                   @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -124,7 +124,7 @@
                 <label for="celular" class="col-md-3 col-form-label text-md-right">Movil</label>
 
                   <div class="col-md-6">
-                    <input id="celular" type="number" class="form-control @error('celular') is-invalid @enderror" name="celular" value="{{ $user->celular }}" required autocomplete="celular" autofocus>
+                    <input id="celular" type="number" class="form-control @error('celular') is-invalid @enderror" name="celular" value="{{ $user->celular }}" readonly="readonly" required autocomplete="celular" autofocus>
 
                     @error('celular')
                       <span class="invalid-feedback" role="alert">
@@ -135,15 +135,16 @@
               </div>
 
               <div class="form-group row">
-                          
-              </div>
 
+              </div>
+              <!-- Ocional si se permite que el admin cambie la img de avatar del usuario
+                {{--
               <div class="form-group row">
                 <label for="image_path" class="col-md-3 col-form-label text-md-right">{{ __('Avatar') }}</label>
 
                   <div class="col-md-6">
-                    @if(Auth::user()->image)
-                      <img src="{{ route('user.avatar',['filename'=> $user->image]) }}" class="avatar" />                          
+                     @if(Auth::user()->image)
+                      <img src="{{ route('user.avatar',['filename'=> $user->image]) }}" class="avatar" />
                     @endif
                       <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path"  >
 
@@ -154,14 +155,17 @@
                     @endif
                   </div>
               </div>
+              --}}
+            -->
+
 
             <div class="form-group row">
               <div class="col-md-6 offset-md-3" >
                 <input id="user_id" type="submit" class="btn btn-primary" value="Guardar cambios" />
-                
+
               </div>
-            </div>           
-            
+            </div>
+
           </form>
 
 
