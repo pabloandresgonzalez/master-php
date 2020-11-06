@@ -26,20 +26,20 @@
                 @if($errors->has('categoria'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('categoria') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="nombre" class="col-md-3 col-form-label text-md-right">Nombre</label>
+              <label for="nombre" class="col-md-3 col-form-label text-md-right">Nombre / Bloque</label>
               <div class="col-md-6">
                 <input id="nombre" type="text" name="nombre" class="form-control {{ $errors->has('nombre') ? 'is-invalid' : '' }}" required />
 
                 @if($errors->has('nombre'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('nombre') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -52,7 +52,7 @@
                 @if($errors->has('placa'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('placa') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -65,7 +65,7 @@
                 @if($errors->has('marca'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('marca') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -78,7 +78,7 @@
                 @if($errors->has('modelo'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('modelo') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -91,20 +91,20 @@
                 @if($errors->has('serial'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('serial') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
 
             <div class="form-group row">
               <label for="descripcion" class="col-md-3 col-form-label text-md-right">Descripción</label>
-              <div class="col-md-6">                
+              <div class="col-md-6">
                 <textarea id="descripcion" type="text" name="descripcion" class="form-control {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" value="" required ></textarea>
-                
+
                 @if($errors->has('descripcion'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('descripcion') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>

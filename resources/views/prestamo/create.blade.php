@@ -94,7 +94,7 @@
             <div class="form-group row">
               <label for="descripcion" class="col-md-3 col-form-label text-md-right">Descripción</label>
               <div class="col-md-6">
-                <textarea id="descripcion" type="text" name="descripcion" class="form-control {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" value="" required ></textarea>
+                <textarea id="descripcion" type="text" name="descripcion" class="form-control {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" value="" required placeholder="P. ej.: Que solicitas, para que lo solicitas o si lo usarás dentro o fuera de la U…" ></textarea>
 
                 @if($errors->has('descripcion'))
                 <span class="invalid-feedback" role="alert">

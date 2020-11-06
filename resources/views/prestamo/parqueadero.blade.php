@@ -21,7 +21,7 @@
                 @if($errors->has('ciudad'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('ciudad') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -34,7 +34,7 @@
                 @if($errors->has('bloque'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('bloque') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -47,7 +47,7 @@
                 @if($errors->has('direccion'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('direccion') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -60,7 +60,7 @@
                 @if($errors->has('salon'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('salon') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -73,12 +73,12 @@
                 @if($errors->has('programa'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('programa') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
 
-            <!-- 
+            <!--
             <div class="form-group row">
               <label for="salida_por" class="col-md-3 col-form-label text-md-right">Salida por:</label>
               <div class="col-md-6">
@@ -93,7 +93,7 @@
                 @if($errors->has('salida_por'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('salida_por') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -107,7 +107,7 @@
                 @if($errors->has('celular'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('celular') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -115,16 +115,16 @@
             <div class="form-group row">
               <label for="descripcion" class="col-md-3 col-form-label text-md-right">Observación</label>
               <div class="col-md-6">
-                <textarea id="descripcion" type="text" name="descripcion" class="form-control {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" value="" required ></textarea>
+                <textarea id="descripcion" type="text" name="descripcion" class="form-control {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" value="" placeholder="P. ej.: Asistes o dictas clase, eres administrativo o tiempo aproximado de uso…" required ></textarea>
 
                 @if($errors->has('descripcion'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('descripcion') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
-                                   
+
 
             <div class="form-group row">
 
