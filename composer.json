@@ -13,13 +13,12 @@
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
-        "laravel/passport": "^10.0",
+        "laravel/passport": "~9.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
-        "miladrahimi/larajwt": "2.*",
-        "miladrahimi/php-jwt": "2.*",
         "simplesoftwareio/simple-qrcode": "~3",
-        "spatie/laravel-permission": "^3.16"
+        "spatie/laravel-permission": "^3.16",
+        "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

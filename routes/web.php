@@ -97,3 +97,5 @@ Route::get('/charts/prestamos/line', 'ChartController@prestamos');
 Route::get('/charts/users/column', 'ChartController@users');
 Route::get('/charts/users/column/data', 'ChartController@usersJson');
 
+//JSON
+

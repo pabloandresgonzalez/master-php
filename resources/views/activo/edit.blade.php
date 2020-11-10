@@ -9,7 +9,7 @@
         <div class="card-header">Editar activo</div>
 
         <div class="card-body">
-          <form method="POST" action="" >
+          <form method="POST" action="{{ route('activo.update') }}" >
             @csrf
 
             <input type="hidden" name="activo_id" value="{{ $activo->id }}" />
@@ -28,11 +28,11 @@
                 @if($errors->has('categoria'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('categoria') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
-  
+
             <div class="form-group row">
               <label for="nombre" class="col-md-3 col-form-label text-md-right">Nombre</label>
               <div class="col-md-6">
@@ -41,7 +41,7 @@
                 @if($errors->has('nombre'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('nombre') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -54,7 +54,7 @@
                 @if($errors->has('placa'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('placa') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -67,7 +67,7 @@
                 @if($errors->has('marca'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('marca') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -80,7 +80,7 @@
                 @if($errors->has('modelo'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('modelo') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -93,7 +93,7 @@
                 @if($errors->has('serial'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('serial') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -106,7 +106,7 @@
                 @if($errors->has('descripcion'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('descripcion') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -114,10 +114,10 @@
             <div class="form-group row">
 
               <div class="col-md-6 offset-md-3" >
-                <input id="user_id" type="submit" class="btn btn-primary" value="Editar" /> 
-                <a href="{{ route('home') }}" class="btn btn-light btn- activo">Regresar</a>              
+                <input id="user_id" type="submit" class="btn btn-primary" value="Editar" />
+                <a href="{{ route('home') }}" class="btn btn-light btn- activo">Regresar</a>
               </div>
-            </div>             
+            </div>
 
           </form>
 
