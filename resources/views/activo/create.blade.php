@@ -17,7 +17,7 @@
               <label for="categoria" class="col-md-3 col-form-label text-md-right">Categoría</label>
               <div class="col-md-6">
 
-                <select id="categoria" name="categoria" class="form-control {{ $errors->has('categoria') ? 'is-invalid' : '' }}" >
+                <select id="categoria" name="categoria" title="Selecciona el area al que pertenece el articulo" class="form-control {{ $errors->has('categoria') ? 'is-invalid' : '' }}" >
                 <option value="1">TI</option>
                 <option value="2">Mobiliario</option>
                 <option value="3">Parquadero bici</option>

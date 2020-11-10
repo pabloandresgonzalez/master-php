@@ -59,7 +59,7 @@ class AuthController extends Controller
 
         $success = true;
 
-        $data =compact('success', 'user', 'tokenResult');
+        // $data =compact('success', 'user', 'tokenResult');
 
         return compact('success', 'user', 'tokenResult');
 
