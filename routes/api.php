@@ -8,15 +8,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('login', 'AuthController@login');
+//Route::post('login', 'AuthController@login');
 
 
 Route::group([
-    'prefix' => 'auth'
+    'prefix' => ''
 ], function () {
 
     Route::post('signup', 'AuthController@signUp');
-
+    Route::post('login', 'AuthController@login');
     Route::group([
       'middleware' => 'auth:api'
     ], function() {
