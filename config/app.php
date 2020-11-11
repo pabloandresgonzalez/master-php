@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FormatTimeServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
 
 
     ],
