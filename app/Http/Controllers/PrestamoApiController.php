@@ -35,6 +35,7 @@ class PrestamoApiController extends Controller
 
     public function index()
     {
+    	/*
     	$user = \Auth::user();
     	$prestamos = Prestamo::where('user_id', $user->id)->orderBy('id', 'desc')->get([
 			"id",
@@ -62,7 +63,7 @@ class PrestamoApiController extends Controller
     	]);
 
     	return  $prestamos;
-
+    	*/
 
     }
 

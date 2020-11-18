@@ -21,7 +21,7 @@ Route::group([
         Route::get('user', 'AuthController@user');
 
         // prestamos
-        Route::get('prestamos', 'PrestamoApiController@index');
+        //Route::get('prestamos', 'PrestamoApiController@index');
         //Route::get('prestamos', 'PrestamoApiController@store');
 
 
