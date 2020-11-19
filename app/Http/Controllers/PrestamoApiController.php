@@ -33,9 +33,11 @@ class PrestamoApiController extends Controller
 "updated_at,
 */
 
-    public function index()
+    public function index(Request $request)
     {
-    	/*
+    	//$user = response()->json($request->user());
+    	//return $user->prestamos;
+
     	$user = \Auth::user();
     	$prestamos = Prestamo::where('user_id', $user->id)->orderBy('id', 'desc')->get([
 			"id",
@@ -62,8 +64,11 @@ class PrestamoApiController extends Controller
 			"updated_at",
     	]);
 
-    	return  $prestamos;
-    	*/
+
+    	return response()->json([
+            'prestamos' => $prestamos
+        ]);
+
 
     }
 
