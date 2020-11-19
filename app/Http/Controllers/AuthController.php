@@ -61,7 +61,7 @@ class AuthController extends Controller
 
         // $data =compact('success', 'user', 'tokenResult');
 
-        return compact('success', 'user', 'tokenResult');
+        return compact('success', 'user', 'token');
 
         /*
         return response()->json([
