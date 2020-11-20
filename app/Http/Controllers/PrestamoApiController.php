@@ -38,7 +38,13 @@ class PrestamoApiController extends Controller
     	//$user = response()->json($request->user());
     	//return $user->prestamos;
 
-    	$user = \Auth::user();
+    	//$user = \Auth::user();
+    	$user = $request->user();
+    	$prestamos = $user->asPrestamos;
+    	return $prestamos;
+
+
+/*
     	$prestamos = Prestamo::where('user_id', $user->id)->orderBy('id', 'desc')->get([
 			"id",
 			"user_id",
@@ -65,10 +71,12 @@ class PrestamoApiController extends Controller
     	]);
 
 
-    	return response()->json(
-            $prestamos
-        );
-
+        return response($prestamos);
+/*
+        return response()->json([
+            'prestamos' => $prestamos
+        ]);
+        */
 
     }
 

@@ -52,6 +52,10 @@ class User extends Authenticatable
     return $this->hasMany('App\Prestamos');
   }
 
+  public function asPrestamos() {
+    return $this->hasMany(Prestamo::class, 'user_id');
+  }
+
   public function authorizeRoles($roles)
     {
         abort_unless($this->hasAnyRole($roles), 401);
