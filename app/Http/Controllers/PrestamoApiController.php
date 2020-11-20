@@ -71,12 +71,19 @@ class PrestamoApiController extends Controller
     	]);
 
 
+<<<<<<< HEAD
         return response($prestamos);
 /*
         return response()->json([
             'prestamos' => $prestamos
         ]);
         */
+=======
+    	return response()->json([
+            'prestamos' => $prestamos
+        ]);
+
+>>>>>>> ba1d2930e54c2894f9279639992de88e14e81807
 
     }
 
