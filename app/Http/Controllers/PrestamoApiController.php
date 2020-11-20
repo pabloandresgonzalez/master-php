@@ -33,15 +33,18 @@ class PrestamoApiController extends Controller
 "updated_at,
 */
 
-    public function index(Request $request)
+    public function index()
     {
     	//$user = response()->json($request->user());
     	//return $user->prestamos;
 
-    	//$user = \Auth::user();
-    	$user = $request->user();
+    	$user = \Auth::user();
+    	//$user = $request->user();
     	$prestamos = $user->asPrestamos;
-    	return [];
+
+    	return response()->json(
+            $prestamos
+        );
 
 
 /*
