@@ -65,9 +65,7 @@ class PrestamoApiController extends Controller
     	]);
 
 
-    	return response()->json([
-           'prestamos' => $prestamos
-        ]);
+    	return $prestamos;
 
 
     }
