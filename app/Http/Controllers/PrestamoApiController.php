@@ -41,7 +41,7 @@ class PrestamoApiController extends Controller
     	//$user = \Auth::user();
     	$user = $request->user();
     	$prestamos = $user->asPrestamos;
-    	return $prestamos;
+    	return [];
 
 
 /*
