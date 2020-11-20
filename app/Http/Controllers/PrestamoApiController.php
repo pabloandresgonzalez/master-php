@@ -69,21 +69,8 @@ class PrestamoApiController extends Controller
 			"created_at",
 			"updated_at",
     	]);
+    	*/
 
-
-<<<<<<< HEAD
-        return response($prestamos);
-/*
-        return response()->json([
-            'prestamos' => $prestamos
-        ]);
-        */
-=======
-    	return response()->json([
-            'prestamos' => $prestamos
-        ]);
-
->>>>>>> ba1d2930e54c2894f9279639992de88e14e81807
 
     }
 
