@@ -61,9 +61,9 @@ class AuthController extends Controller
 
         // $data =compact('success', 'user', 'tokenResult');
 
-        //return compact('success', 'user', 'tokenResult');
+        return compact('success', 'user', 'tokenResult');
 
-
+        /*
         return response()->json([
             'success' => $success,
             'access_token' => $tokenResult->accessToken,
@@ -71,7 +71,7 @@ class AuthController extends Controller
             'user' => $user,
             'expires_at' => Carbon::parse($token->expires_at)->toDateTimeString()
         ]);
-
+        */
 
     }
 
