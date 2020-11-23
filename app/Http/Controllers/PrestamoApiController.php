@@ -43,9 +43,10 @@ class PrestamoApiController extends Controller
     	$user = $request->user();
     	$prestamos = $user->asPrestamos;
 
-    	return response()->json([
-            'prestamos' => $prestamos
+    	 return response()->json([
+            $prestamos
         ]);
+
 
 
 /*
