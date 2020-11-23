@@ -62,15 +62,17 @@ class AuthController extends Controller
         // $data =compact('success', 'user', 'tokenResult');
 
         // request para login en prod
-        return compact('success', 'user', 'tokenResult');
+        //return compact('success', 'user', 'tokenResult');
 
-        /*
-        return response([
+
+        return response()->json([
             'success' => $success,
             'user' => $user,
-            'tokenResult' => $token
+            'tokenResult' => $tokenResult->accessToken,
+            'token_type' => 'Bearer',
+            'expires_at' => Carbon::parse($token->expires_at)->toDateTimeString()
         ]);
-        */
+
 
     }
 
