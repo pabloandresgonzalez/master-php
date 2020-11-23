@@ -65,10 +65,10 @@ class AuthController extends Controller
         //return compact('success', 'user', 'tokenResult');
 
 
-        return response()->json([
+        return response([
             'success' => $success,
             'user' => $user,
-            'tokenResult' => $tokenResult
+            'tokenResult' => $token
         ]);
 
 
