@@ -62,15 +62,15 @@ class AuthController extends Controller
         // $data =compact('success', 'user', 'tokenResult');
 
         // request para login en prod
-        return compact('success', 'user', 'tokenResult');
+        //return compact('success', 'user', 'tokenResult');
 
-/*
+
         return response()->json([
             'success' => $success,
-            'tokenResult' => $tokenResult,
             'user' => $user,
+            'tokenResult' => $tokenResult
         ]);
-        */
+
 
 
     }
