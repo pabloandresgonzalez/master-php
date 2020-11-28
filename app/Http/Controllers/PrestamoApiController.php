@@ -25,6 +25,13 @@ class PrestamoApiController extends Controller
 
     public function store(StorePrestamo $request)
     {
+    	$user = $request->user();
+    	$id = $user->id;
+    	$name = $user->name;
+	    $surname = $user->surname;
+	    $cedula = $user->cedula;
+	    $email = $user->email;
+
     	//Recoger los datos del formulario
     $ciudad = $request->input('ciudad');
     $bloque = $request->input('bloque');
