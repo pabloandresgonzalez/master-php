@@ -3,35 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePrestamo;
 use App\Prestamo;
 use App\User;
 
 class PrestamoApiController extends Controller
 {
-/*
-"id,
-"user_id,
-"name_user,
-"surname_user,
-"cedula_user,
-"ciudad,
-"bloque,
-"direccion,
-"estado,
-"nombre_activo,
-"serial,
-"placa,
-"salon,
-"programa,
-"celular,
-"referencia,
-"cantidad,
-"salida_por,
-"descripcion,
-"editado_por,
-"created_at,
-"updated_at,
-*/
 
     public function index(Request $request)
     {
@@ -46,9 +23,43 @@ class PrestamoApiController extends Controller
         );
     }
 
-    public function store()
+    public function store(StorePrestamo $request)
     {
+    	//Recoger los datos del formulario
+    $ciudad = $request->input('ciudad');
+    $bloque = $request->input('bloque');
+    $direccion = $request->input('direccion');
+    $salon = $request->input('salon');
+    $programa = $request->input('programa');
+    $celular = $request->input('celular');
+    //$estado = $request->input('estado');
+    $referencia = '';
+    $cantidad = 0;
+    $descripcion = $request->input('descripcion');
 
+
+    //Asignar nuevos valores al objeto del prestamo
+    $prestamo = new Prestamo();
+    $prestamo->user_id = $id;
+    $prestamo->name_user = $name;
+    $prestamo->surname_user = $surname;
+    $prestamo->cedula_user = $cedula;
+    $prestamo->ciudad = $ciudad;
+    $prestamo->bloque = $bloque;
+    $prestamo->direccion = $direccion;
+    $prestamo->salon = $salon;
+    $prestamo->estado = 'Pendiente';
+    $prestamo->programa = $programa;
+    $prestamo->celular = $celular;
+    $prestamo->referencia = $referencia;
+    $prestamo->cantidad = $cantidad;
+    $prestamo->descripcion = $descripcion;
+    $prestamo->editado_por = $email;
+
+
+    $success = $prestamo->save();
+
+    return compact('success');
     }
 
 

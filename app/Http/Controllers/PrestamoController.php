@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePrestamo;
 use App\Prestamo;
 use App\User;
 
@@ -17,7 +18,7 @@ class PrestamoController extends Controller {
     return view('prestamo.create');
   }
 
-  public function save(Request $request)
+  public function save(StorePrestamo $request)
   {
     //Conseguir usuario identificado
     $user = \Auth::user();
@@ -27,6 +28,7 @@ class PrestamoController extends Controller {
     $cedula = $user->cedula;
     $email = $user->email;
 
+    /*
     //Validacion del formulario
     $validate = $this->validate($request, [
         'ciudad' => 'required',
@@ -39,9 +41,8 @@ class PrestamoController extends Controller {
         //'referencia' => 'required|string|max:100',
         //'cantidad' => 'required',
         'descripcion' => 'required|string|max:255',
-
-
     ]);
+    */
 
     //Recoger los datos del formulario
     $ciudad = $request->input('ciudad');
