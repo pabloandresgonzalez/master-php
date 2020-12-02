@@ -25,49 +25,52 @@ class PrestamoApiController extends Controller
 
     public function store(StorePrestamo $request)
     {
-    	$user = $request->user();
-    	$id = $user->id;
-    	$name = $user->name;
+
+		$user = $request->user();
+		$id = $user->id;
+		$name = $user->name;
 	    $surname = $user->surname;
 	    $cedula = $user->cedula;
 	    $email = $user->email;
 
-    	//Recoger los datos del formulario
-    $ciudad = $request->input('ciudad');
-    $bloque = $request->input('bloque');
-    $direccion = $request->input('direccion');
-    $salon = $request->input('salon');
-    $programa = $request->input('programa');
-    $celular = $request->input('celular');
-    //$estado = $request->input('estado');
-    $referencia = '';
-    $cantidad = 0;
-    $descripcion = $request->input('descripcion');
+	    	//Recoger los datos del formulario
+	    $ciudad = $request->input('ciudad');
+	    $bloque = $request->input('bloque');
+	    $direccion = $request->input('direccion');
+	    $salon = $request->input('salon');
+	    $programa = $request->input('programa');
+	    $celular = $request->input('celular');
+	    //$estado = $request->input('estado');
+	    $referencia = '';
+	    $cantidad = 0;
+	    $descripcion = $request->input('descripcion');
 
 
-    //Asignar nuevos valores al objeto del prestamo
-    $prestamo = new Prestamo();
-    $prestamo->user_id = $id;
-    $prestamo->name_user = $name;
-    $prestamo->surname_user = $surname;
-    $prestamo->cedula_user = $cedula;
-    $prestamo->ciudad = $ciudad;
-    $prestamo->bloque = $bloque;
-    $prestamo->direccion = $direccion;
-    $prestamo->salon = $salon;
-    $prestamo->estado = 'Pendiente';
-    $prestamo->programa = $programa;
-    $prestamo->celular = $celular;
-    $prestamo->referencia = $referencia;
-    $prestamo->cantidad = $cantidad;
-    $prestamo->descripcion = $descripcion;
-    $prestamo->editado_por = $email;
+	    //Asignar nuevos valores al objeto del prestamo
+	    $prestamo = new Prestamo();
+	    $prestamo->user_id = $id;
+	    $prestamo->name_user = $name;
+	    $prestamo->surname_user = $surname;
+	    $prestamo->cedula_user = $cedula;
+	    $prestamo->ciudad = $ciudad;
+	    $prestamo->bloque = $bloque;
+	    $prestamo->direccion = $direccion;
+	    $prestamo->salon = $salon;
+	    $prestamo->estado = 'Pendiente';
+	    $prestamo->programa = $programa;
+	    $prestamo->celular = $celular;
+	    $prestamo->referencia = $referencia;
+	    $prestamo->cantidad = $cantidad;
+	    $prestamo->descripcion = $descripcion;
+	    $prestamo->editado_por = $email;
 
 
-    $success = $prestamo->save();
+	    $prestamo->save();
 
-    return compact('success');
-    }
+	    $success = $prestamo;
+
+	    return compact('success');
+	    }
 
 
 }
