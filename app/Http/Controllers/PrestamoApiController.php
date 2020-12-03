@@ -67,7 +67,13 @@ class PrestamoApiController extends Controller
 
 	    $prestamo->save();
 
-	    $success = $prestamo;
+	    if ($prestamo) {
+			$success = true;
+	    } else {
+	    	$success = false;
+	    }
+
+	    //$success = $prestamo;
 
 	    return compact('success');
 	    }
