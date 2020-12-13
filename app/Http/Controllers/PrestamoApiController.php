@@ -32,6 +32,7 @@ class PrestamoApiController extends Controller
 	    $surname = $user->surname;
 	    $cedula = $user->cedula;
 	    $email = $user->email;
+	    $celular = $user->celular
 
 	    	//Recoger los datos del formulario
 	    $ciudad = $request->input('ciudad');
@@ -39,7 +40,7 @@ class PrestamoApiController extends Controller
 	    $direccion = $request->input('direccion');
 	    $salon = $request->input('salon');
 	    $programa = $request->input('programa');
-	    $celular = $request->input('celular');
+	    //$celular = $request->input('celular');
 	    //$estado = $request->input('estado');
 	    $referencia = '';
 	    $cantidad = 0;
