@@ -74,7 +74,7 @@ class PrestamoApiController extends Controller
 	    	$success = false;
 	    }
 
-	    $success = $prestamo;
+	    //$success = $prestamo;
 
 	    return compact('success');
 
