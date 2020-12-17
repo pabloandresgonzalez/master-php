@@ -15,7 +15,7 @@ class StorePrestamo extends FormRequest
             'direccion' => 'required|string|max:255',
             'salon' => 'required|string|max:255',
             'programa' => 'required|string|max:255',
-            'celular' => 'required|string|max:255',
+            //'celular' => 'required|string|max:255',
             //'estado' => 'required|string|max:20'
             //'referencia' => 'required|string|max:100',
             //'cantidad' => 'required',

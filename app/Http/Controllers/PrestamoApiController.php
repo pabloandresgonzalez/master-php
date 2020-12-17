@@ -27,12 +27,13 @@ class PrestamoApiController extends Controller
     {
 
 		$user = $request->user();
-		$id = $user->id;
+		/*$id = $user->id;
 		$name = $user->name;
 	    $surname = $user->surname;
 	    $cedula = $user->cedula;
 	    $email = $user->email;
 	    $celular = $user->celular;
+	    */
 
 	    	//Recoger los datos del formulario
 	    $ciudad = $request->input('ciudad');
@@ -79,8 +80,9 @@ class PrestamoApiController extends Controller
 	    //return compact('success');
 
 
-	    return response()->json([
-            $success
+	    // result de api request con index correcto
+    	return response()->json([
+            $prestamo
         ]);
 
 
