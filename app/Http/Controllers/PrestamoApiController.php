@@ -26,14 +26,15 @@ class PrestamoApiController extends Controller
     public function store(StorePrestamo $request)
     {
 
+
 		$user = $request->user();
-		/*$id = $user->id;
+		$id = $user->id;
 		$name = $user->name;
 	    $surname = $user->surname;
 	    $cedula = $user->cedula;
 	    $email = $user->email;
 	    $celular = $user->celular;
-	    */
+
 
 	    	//Recoger los datos del formulario
 	    $ciudad = $request->input('ciudad');
@@ -43,8 +44,8 @@ class PrestamoApiController extends Controller
 	    $programa = $request->input('programa');
 	    //$celular = $request->input('celular');
 	    //$estado = $request->input('estado');
-	    $referencia = '';
-	    $cantidad = 0;
+	    //$referencia = '';
+	    //$cantidad = 0;
 	    $descripcion = $request->input('descripcion');
 
 
@@ -61,10 +62,10 @@ class PrestamoApiController extends Controller
 	    $prestamo->estado = 'Pendiente';
 	    $prestamo->programa = $programa;
 	    $prestamo->celular = $celular;
-	    $prestamo->referencia = $referencia;
-	    $prestamo->cantidad = $cantidad;
+	    //$prestamo->referencia = $referencia;
+	    //$prestamo->cantidad = $cantidad;
 	    $prestamo->descripcion = $descripcion;
-	    $prestamo->editado_por = $email;
+	    //$prestamo->editado_por = $email;
 
 
 	    $prestamo->save();
@@ -82,7 +83,7 @@ class PrestamoApiController extends Controller
 
 	    // result de api request con index correcto
     	return response()->json([
-            $prestamo
+            'success' => $success
         ]);
 
 
