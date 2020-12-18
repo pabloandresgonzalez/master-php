@@ -48,6 +48,7 @@ class PrestamoApiController extends Controller
 	    //$cantidad = 0;
 	    $descripcion = $request->input('descripcion');
 
+/*
 
 	    //Asignar nuevos valores al objeto del prestamo
 	    $prestamo = new Prestamo();
@@ -68,9 +69,20 @@ class PrestamoApiController extends Controller
 	    //$prestamo->editado_por = $email;
 
 
-	    $prestamo->save();
+	    $prestamoSave = $prestamo->save();
+	    */
 
-	    if ($prestamo) {
+	    $data = $request->only([
+	    	'ciudad',
+	    	'bloque',
+	    	'direccion',
+	    	'salon',
+	    	'programa'
+	    ]);
+
+	    $prestamoSave =	Prestamo::create($data);
+
+	    if ($prestamoSave) {
 			$success = true;
 	    } else {
 	    	$success = false;

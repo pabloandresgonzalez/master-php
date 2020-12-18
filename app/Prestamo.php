@@ -14,6 +14,10 @@ class Prestamo extends Model
     ];
     */
 
+  protected $fillable = [
+        'ciudad', 'bloque', 'direccion', 'salon', 'programa'
+    ];
+
   //Relacion uno a mucho
   public function activos(){
     return $this->hasMany('App\Activo');
