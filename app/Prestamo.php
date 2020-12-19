@@ -18,6 +18,10 @@ class Prestamo extends Model
         'ciudad', 'bloque', 'direccion', 'salon', 'programa'
     ];
 
+  protected $hidden = [
+        'id', 'created_at', 'updated_at', 'estado'
+    ];
+
   //Relacion uno a mucho
   public function activos(){
     return $this->hasMany('App\Activo');

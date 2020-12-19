@@ -48,7 +48,6 @@ class PrestamoApiController extends Controller
 	    //$cantidad = 0;
 	    $descripcion = $request->input('descripcion');
 
-/*
 
 	    //Asignar nuevos valores al objeto del prestamo
 	    $prestamo = new Prestamo();
@@ -70,17 +69,6 @@ class PrestamoApiController extends Controller
 
 
 	    $prestamoSave = $prestamo->save();
-	    */
-
-	    $data = $request->only([
-	    	'ciudad',
-	    	'bloque',
-	    	'direccion',
-	    	'salon',
-	    	'programa'
-	    ]);
-
-	    $prestamoSave =	Prestamo::create($data);
 
 	    if ($prestamoSave) {
 			$success = true;
@@ -88,15 +76,15 @@ class PrestamoApiController extends Controller
 	    	$success = false;
 	    }
 
-	    //$success = $prestamo;
+	    $success = $prestamo;
 
 	    //return compact('success');
-
 
 	    // result de api request con index correcto
     	return response()->json([
             'success' => $success
         ]);
+
 
 
 	    }
