@@ -8,19 +8,17 @@ class Prestamo extends Model
 {
     protected $table = 'prestamos';
 
-    /* para ocultar campos del modelo
-    protected $hidden =[
-    	'created_at', 'id'
-    ];
-    */
 
-  protected $fillable = [
-        'ciudad', 'bloque', 'direccion', 'salon', 'programa'
-    ];
+    protected $fillable = [
+          'ciudad', 'bloque', 'direccion', 'salon', 'programa'
+      ];
 
-  protected $hidden = [
-        'id', 'created_at', 'updated_at', 'estado'
-    ];
+
+    //para ocultar campos del modelo
+     protected $hidden = [
+          'id', 'user_id', 'name_user', 'surname_user', 'cedula_user', 'celular', 'estado', 'created_at', 'updated_at'
+      ];
+
 
   //Relacion uno a mucho
   public function activos(){
