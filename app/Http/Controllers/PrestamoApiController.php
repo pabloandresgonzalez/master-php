@@ -67,7 +67,8 @@ class PrestamoApiController extends Controller
 	    //$prestamo->editado_por = $email;
 
 
-	    $prestamoSave = $prestamo->save();
+	   $prestamoSave = $prestamo->save();
+
 
 
 	    if ($prestamoSave) {
@@ -82,7 +83,7 @@ class PrestamoApiController extends Controller
 
 	    // result de api request con ? correcto
     	return response()->json([
-            'success' => $success
+            $success
         ]);
 
 	}
