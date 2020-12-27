@@ -23,8 +23,6 @@ Route::group([
         // prestamos
         Route::get('prestamos', 'PrestamoApiController@index');
         Route::post('prestamos', 'PrestamoApiController@store');
-
-
     });
 });
 

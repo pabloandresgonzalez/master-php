@@ -26,7 +26,6 @@ class PrestamoApiController extends Controller
     public function store(StorePrestamo $request)
     {
 
-
 		$user = $request->user();
 		$id = $user->id;
 		$name = $user->name;
@@ -78,18 +77,14 @@ class PrestamoApiController extends Controller
 
 	    //$success = $prestamo;
 
-	    //return compact('success');
+	    return compact('success');
 
 	    // result de api request con index correcto
-    	return response()->json([
+
+    	/*return response()->json([
             'success' => $success
         ]);
-
-
-
+		*/
 	    }
-
-
-
 
 }
