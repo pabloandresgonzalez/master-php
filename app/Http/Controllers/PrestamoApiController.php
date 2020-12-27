@@ -69,13 +69,12 @@ class PrestamoApiController extends Controller
 
 	    $prestamoSave = $prestamo->save();
 
-	    /*
+
 	    if ($prestamoSave) {
 			$success = true;
 	    } else {
 	    	$success = false;
 	    }
-	    */
 
 
 	    //$success = $prestamo;
@@ -85,8 +84,8 @@ class PrestamoApiController extends Controller
 	    // result de api request con ? correcto
 
     	return response()->json([
-            //'success' => $success
-            $prestamo
+            'success' => $success
+            //$prestamo
         ]);
 
 	}
