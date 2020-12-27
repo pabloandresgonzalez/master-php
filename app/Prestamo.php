@@ -13,12 +13,12 @@ class Prestamo extends Model
           'ciudad', 'bloque', 'direccion', 'salon', 'programa'
       ];
 
-
+    /*
     //para ocultar campos del modelo
      protected $hidden = [
           'id', 'user_id', 'name_user', 'surname_user', 'cedula_user', 'celular', 'estado', 'created_at', 'updated_at'
       ];
-
+    */
 
   //Relacion uno a mucho
   public function activos(){

@@ -69,22 +69,25 @@ class PrestamoApiController extends Controller
 
 	    $prestamoSave = $prestamo->save();
 
+
 	    if ($prestamoSave) {
 			$success = true;
 	    } else {
 	    	$success = false;
 	    }
 
+
 	    //$success = $prestamo;
 
 	    return compact('success');
 
 	    // result de api request con index correcto
-
-    	/*return response()->json([
-            'success' => $success
+	    /*
+    	return response()->json([
+            //'success' => $success
+            $prestamo
         ]);
 		*/
-	    }
+	}
 
 }
