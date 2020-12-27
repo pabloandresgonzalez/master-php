@@ -76,16 +76,16 @@ class PrestamoApiController extends Controller
 	    	$success = false;
 	    }
 
+	    $success1 = null;
 
 	    //$success = $prestamo;
 
 	    //return compact('success');
 
 	    // result de api request con ? correcto
-    	return response()->json(
-            $success
-
-        );
+    	return response()->json([
+            $success1 = $success
+        ]);
 
 	}
 
