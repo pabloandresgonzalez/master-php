@@ -5,8 +5,11 @@ namespace App;
 use App\Role;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\AuthController;
 
 
 
@@ -33,6 +36,35 @@ class User extends Authenticatable
         'password', 'remember_token', 'email_verified_at',
         'created_at', 'updated_at'
     ];
+
+
+    public static $rules = [
+            'name' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
+            'cedula' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'celular' => 'required|string',
+        ];
+
+
+    public static function createUsuario(array $data)
+    {
+
+        return self::create([
+            'role' => 'user',
+            'name' => $data['name'],
+            'surname' => $data['surname'],
+            'cedula' => $data['cedula'],
+            'email' => $data['email'],
+            'celular' => $data['celular'],
+            'password' => Hash::make($data['password']),
+
+        ]);
+
+        //$user->roles()->attach(Role::where('name', 'user')->first());
+
+        //return $user;
+    }
 
     /**
      * The attributes that should be cast to native types.

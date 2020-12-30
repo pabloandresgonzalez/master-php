@@ -7,8 +7,9 @@ use App\Providers\RouteServiceProvider;
 use App\User;
 use App\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\AuthController;
+use App\Http\Traits\ValidateAndCreateUser;
 
 class RegisterController extends Controller
 {
@@ -24,6 +25,7 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+    use ValidateAndCreateUser;
 
     /**
      * Where to redirect users after registration.
@@ -42,50 +44,6 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'surname' => 'required|string|max:255',
-            'cedula' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'celular' => 'required|string', 
-        ]);  
-         
-    }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
 
-        return User::create([  
-      
-            'role' => 'user',
-            'name' => $data['name'],
-            'surname' => $data['surname'],
-            'cedula' => $data['cedula'],
-            'email' => $data['email'],
-            'celular' => $data['celular'],
-            'password' => Hash::make($data['password']),                       
-
-        ]);
-
-        
-
-        //$user->roles()->attach(Role::where('name', 'user')->first());
-
-        return $user;
-        
-    }
 }

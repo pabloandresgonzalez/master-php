@@ -13,6 +13,7 @@ Route::group([
 ], function () {
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signUp');
+    Route::post('register', 'AuthController@register');
 
     Route::group([
       'middleware' => 'auth:api'

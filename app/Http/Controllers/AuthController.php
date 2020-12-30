@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Traits\ValidateAndCreateUser;
 use Auth;
+use App\User;
 use Carbon\Carbon;
+
 
 class AuthController extends Controller
 {
+    use ValidateAndCreateUser;
+
     /**
      * Registro de usuario
      */
@@ -67,8 +75,6 @@ class AuthController extends Controller
             'token_type' => 'Bearer',
             'expires_at' => Carbon::parse($token->expires_at)->toDateTimeString()
         ]);
-
-
     }
 
     /**
@@ -89,6 +95,56 @@ class AuthController extends Controller
     public function user(Request $request)
     {
         return response()->json($request->user());
+    }
+    /**
+     * Registrar el User
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        //$this->guard()->login($user);
+        Auth::guard()->login($user);
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+        /*
+        return $request->wantsJson()
+                    ? new JsonResponse([], 201)
+                    : redirect($this->redirectPath());
+        */
+         $tokenResult = $user->createToken('Personal Access Token');
+
+
+        $token = $tokenResult->token;
+        if ($request->remember_me)
+            $token->expires_at = Carbon::now()->addWeeks(1);
+        $token->save();
+
+        $success = true;
+
+        // result de api request con login correcto
+        return response()->json([
+            'success' => $success,
+            'user' => $user,
+            'tokenResult' => $tokenResult->accessToken,
+            'token_type' => 'Bearer',
+            'expires_at' => Carbon::parse($token->expires_at)->toDateTimeString()
+        ]);
+
+    }
+
+    protected function guard()
+    {
+        return Auth::guard();
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        //
     }
 
 }
