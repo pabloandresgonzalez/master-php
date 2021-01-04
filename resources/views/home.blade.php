@@ -11,7 +11,7 @@
       </div>
       @endif
 
-      <h1>Prestamos</h1>
+      <h1>Prestamos UCC</h1>
       <hr>
 
       <div class="row " style="display: flow-root;">
