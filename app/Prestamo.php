@@ -15,7 +15,7 @@ class Prestamo extends Model
 
     //para ocultar campos del modelo
      protected $hidden = [
-          'id', 'estado', 'created_at', 'updated_at'
+          'created_at', 'updated_at'
       ];
 
 
@@ -24,7 +24,7 @@ class Prestamo extends Model
     return $this->hasMany('App\Activo');
   }
 
-  //Realcion
+  //Relacion
   public function users(){
     return $this->belongsTo('App\User', 'user_id');
   }
