@@ -15,6 +15,7 @@ Route::group([
     Route::post('signup', 'AuthController@signUp');
     Route::post('register', 'AuthController@register');
 
+
     Route::group([
       'middleware' => 'auth:api'
     ], function() {
@@ -24,6 +25,9 @@ Route::group([
         // prestamos
         Route::get('prestamos', 'PrestamoApiController@index');
         Route::post('prestamos', 'PrestamoApiController@store');
+
+        //FCM
+        Route::post('/fcm/token', 'FirebaseController@postToken');
     });
 });
 
