@@ -27,7 +27,7 @@ Route::group([
         Route::post('prestamos', 'PrestamoApiController@store');
 
         //FCM
-        Route::post('/fcm/token', 'FirebaseController@postToken');
+        Route::post('/fcm/token', 'FirebaseController@posToken');
     });
 });
 
