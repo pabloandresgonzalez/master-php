@@ -55,9 +55,14 @@
       @endforeach
 
       <!-- Paginacion -->
+      <div class="col-xs">
+        <div class="pagination pagination-sm">
       <div class="clearfix"></div>
       {{$users->links()}}
     </div>
+  </div>
+</div>
+
   </div>
 </div>
 @endsection
