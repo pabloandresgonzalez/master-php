@@ -14,7 +14,7 @@ class FirebaseWebController extends Controller
     	//dd($request->all());
     	$recipients = User::whereNotNull('device_token')
     		->pluck('device_token')->toArray();
-    	//Sdd($recipients);
+    	//dd($recipients);
 
 	        fcm()
 			    ->to($recipients) // $recipients must an array
