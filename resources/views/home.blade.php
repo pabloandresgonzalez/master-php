@@ -77,12 +77,12 @@
             @csrf
 
             <div class="form-group row">
-              <label for="titulo" class="col-md-4 col-form-label" >{{ __('Titulo') }}</label>
+              <label for="title" class="col-md-4 col-form-label" >{{ __('Titulo') }}</label>
 
                 <div class="col-md-10">
-                  <input id="titulo" type="text" class="form-control @error('modelo') is-invalid @enderror" name="titulo" value="{{ config('app.name') }}" placeholder="{{ config('app.name') }}" required autocomplete="titulo" autofocus>
+                  <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ config('app.name') }}" placeholder="{{ config('app.name') }}" required autocomplete="title" autofocus>
 
-                  @error('titulo')
+                  @error('title')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                   </span>
