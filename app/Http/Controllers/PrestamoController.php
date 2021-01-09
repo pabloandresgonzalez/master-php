@@ -216,17 +216,6 @@ class PrestamoController extends Controller {
     //Actualizar registro
     $prestamo->update();
 
-    $prestamo->user->sendFCM('El estado de su prestamo a cambiado!')
-
-    fcm()
-                ->to($recipients) // $recipients must an array
-                ->priority('high')
-                ->timeToLive(0)
-                ->notification([
-                    'title' => $request->input('title'),
-                    'body' => $request->input('body')
-                ])
-                ->send();
 
     return redirect()->route('prestamo.detail', ['id' => $prestamo_id])
                      ->with(['message' => 'Prestamo editado correctamente!!']);
