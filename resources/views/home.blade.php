@@ -10,7 +10,7 @@
             <div class="row align-items-center">
               <div class="col">
                 <strong>Prestamos UCC</strong><br>
-                <h7 class="mb-0">Bienvenido! selecciona una opción el menú superior y realiza el préstamo del parqueadero de bicicleta o elemento que necesites.</h7>
+                <h7 class="mb-0">Bienvenido! selecciona una opción del menú superior y realiza préstamos del parqueadero para bicicletas o los elementos que necesites.</h7>
               </div>
             </div>
           </div>
@@ -60,9 +60,8 @@
 
     </div>
 
-
+       @if(Auth::user()->role == 'admin')
       <div class="col-md-3">
-        @if(Auth::user()->role == 'admin')
         <div class="card shadow" style=" margin-top: 54px;">
           <div class="card-header bg-transparent">
             <div class="row align-items-center">
@@ -74,13 +73,16 @@
           </div>
           <div class="card-body">
 
+          <form action="{{ url('/fcm/send')}}" method="Post">
+            @csrf
+
             <div class="form-group row">
-              <label for="modelo" class="col-md-4 col-form-label text-md-right">{{ __('Modelo') }}</label>
+              <label for="titulo" class="col-md-4 col-form-label" >{{ __('Titulo') }}</label>
 
                 <div class="col-md-10">
-                  <input id="modelo" type="text" class="form-control @error('modelo') is-invalid @enderror" name="modelo" value="" required autocomplete="modelo" autofocus>
+                  <input id="titulo" type="text" class="form-control @error('modelo') is-invalid @enderror" name="titulo" value="{{ config('app.name') }}" placeholder="{{ config('app.name') }}" required autocomplete="titulo" autofocus>
 
-                  @error('modelo')
+                  @error('titulo')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                   </span>
@@ -89,18 +91,23 @@
               </div>
 
               <div class="form-group row">
-                  <label for="modelo" class="col-md-4 col-form-label text-md-right">{{ __('Modelo') }}</label>
+                  <label for="body" class="col-md-6 col-form-label ">{{ __('Mensaje') }}</label>
 
                   <div class="col-md-10">
-                      <input id="modelo" type="text" class="form-control @error('modelo') is-invalid @enderror" name="modelo" value="" required autocomplete="modelo" autofocus>
+                      <textarea id="body" type="text" class="form-control @error('mensaje') is-invalid @enderror" name="body" rows="2" value="" required autocomplete="mensaje" autofocus></textarea>
 
-                      @error('modelo')
+                      @error('mensaje')
                       <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                       </span>
                       @enderror
                   </div>
               </div>
+
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Enviar notificacion</button>
+
+          </form>
+
 
            </div>
         </div>
