@@ -118,7 +118,7 @@ class User extends Authenticatable
         return false;
     }
 
-    public function sendFCM()
+    public function sendFCM($message)
     {
         return fcm()->to([
               $this->device_token

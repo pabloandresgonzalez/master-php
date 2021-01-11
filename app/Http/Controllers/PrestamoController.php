@@ -215,8 +215,11 @@ class PrestamoController extends Controller {
     //Actualizar registro
     $saved = $prestamo->update();
 
-    if ($saved)
-        $prestamo->user->sendFCM('su prestamo ha cambiado de estado!');
+    if ($saved){
+
+        $user->sendFCM('su prestamo ha cambiado de estado!');
+
+    }
 
 
     return redirect()->route('prestamo.detail', ['id' => $prestamo_id])
