@@ -118,4 +118,14 @@ class User extends Authenticatable
         return false;
     }
 
+    public function sendFCM()
+    {
+        return fcm()->to([
+              this->device_token
+          ])->notification([
+              'title' => config('app.name'),
+              'body' => $message
+          ])->send();
+    }
+
 }

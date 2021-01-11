@@ -111,7 +111,6 @@ class PrestamoController extends Controller {
 
   }
 
-
   /*
     //Eliminar prestamo
     public function delete($id){
@@ -214,7 +213,10 @@ class PrestamoController extends Controller {
 
 
     //Actualizar registro
-    $prestamo->update();
+    $saved = $prestamo->update();
+
+    if ($saved)
+        $prestamo->user->sendFCM('su prestamo ha cambiado de estado!');
 
 
     return redirect()->route('prestamo.detail', ['id' => $prestamo_id])

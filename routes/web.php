@@ -16,25 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-  /*
-  $prestamos = Prestamo::all();
-  foreach ($prestamos as $prestamo){
-    echo "Numero: ".$prestamo->id."<br/>";
-    echo $prestamo->usuario_id."<br/>";
-    echo $prestamo->ciudad."<br/>";
-    echo $prestamo->bloque."<br/>";
-    echo $prestamo->direccion."<br/>";
-    echo $prestamo->estado."<br/>";
-    echo $prestamo->users->name.' '.$prestamo->users->surname;
 
-
-
-    echo "<hr>";
-    //var_dump($prestamo);
-  }
-    die();
-    */
   return view('welcome');
+
 });
 
 //Generales
