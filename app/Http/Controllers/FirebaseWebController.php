@@ -17,7 +17,7 @@ class FirebaseWebController extends Controller
     	//dd($recipients);
 
 	        fcm()
-			    ->to($recipients) // $recipients must an array
+			    ->to($recipients)
 			    ->priority('high')
 			    ->timeToLive(0)
 			    ->notification([

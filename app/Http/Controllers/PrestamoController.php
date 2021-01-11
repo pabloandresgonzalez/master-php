@@ -221,7 +221,6 @@ class PrestamoController extends Controller {
 
     }
 
-
     return redirect()->route('prestamo.detail', ['id' => $prestamo_id])
                      ->with(['message' => 'Prestamo editado correctamente!!']);
 

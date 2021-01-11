@@ -18,7 +18,6 @@ class Prestamo extends Model
           'created_at', 'updated_at'
       ];
 
-
   //Relacion uno a mucho
   public function activos(){
     return $this->hasMany('App\Activo');
