@@ -40,7 +40,7 @@
           {{'Cargo / Programa: '.$prestamo->programa }} <br>
           {{'Actualizado: '.$prestamo->updated_at }} <br>
           <strong>Estado:</strong>
-            @if($prestamo->estado == 'Pendiente' || $prestamo->estado == 'Abierto' )
+            @if($prestamo->estado == 'En tramite' || $prestamo->estado == 'En curso' )
               <span class="badge badge-warning">{{ $prestamo->estado }}</span>
             @else
               <span class="badge badge-success">{{ $prestamo->estado }}</span>
@@ -60,7 +60,7 @@
 
       @if(Auth::user()->role == 'admin' || Auth::user()->role == 'auxti' || Auth::user()->role == 'auxactivos')
       <div class="actions">
-        @if($prestamo->estado == 'Abierto' || $prestamo->estado == 'Pendiente' )
+        @if($prestamo->estado == 'En tramite' || $prestamo->estado == 'En curso' )
          <a href="{{ route('prestamo.edit', ['id' => $prestamo->id ]) }}" class="btn btn-primary"
           data-toggle="tooltip" title="Edita este prestamo">Editar</a>
          @endif

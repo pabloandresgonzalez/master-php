@@ -12,12 +12,13 @@
     @endif
 
       <div class="card">
-        <div class="card-header">Editar rol de usuario  <strong>{{ $user->name }}</strong> </div>
+        <div class="card-header">Editar rol de usuario  <strong>{{ $user->name }} {{$user->surname}}</strong> </div>
 
         <div class="card-body">
           <form method="POST" action="{{ route('user.updaterol') }}" enctype="multipart/form-data">
             @csrf
 
+            <input type="hidden" name="user_id" value="{{ $user->id }}" />
 
             <div class="form-group row">
               <label for="role" class="col-md-3 col-form-label text-md-right">Cambiar rol</label>
@@ -25,7 +26,7 @@
 
                 <select id="role" name="role" class="form-control {{ $errors->has('role') ? 'is-invalid' : '' }}" >
                 <option value="admin">Administrador</option>
-                <option value="auxactivos">Auxiliar de auxactivos</option>
+                <option value="auxactivos">Auxiliar de activos</option>
                 <option value="auxti">Auxiliar de TI</option>
                 <option value="user">Usuario</option>
                 </select>
@@ -39,32 +40,6 @@
             </div>
 
             <hr>
-
-            <div class="form-group row ">
-              <label for="role" class="col-md-3 col-form-label text-md-right">Id</label>
-              <div class="col-md-6">
-                <input id="user_id" type="text" name="user_id" class="form-control {{ $errors->has('role') ? 'is-invalid' : '' }}" value="{{ $user->id }}" readonly="readonly" required />
-
-                @if($errors->has('role'))
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $errors->first('role') }}</strong>
-                </span>
-                @endif
-              </div>
-            </div>
-
-            <div class="form-group row ">
-              <label for="role" class="col-md-3 col-form-label text-md-right">{{ __('Rol') }}</label>
-              <div class="col-md-6">
-                <input id="" type="text" name="" class="form-control {{ $errors->has('role') ? 'is-invalid' : '' }}" value="{{ $user->role }}" readonly="readonly" required />
-
-                @if($errors->has('role'))
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $errors->first('role') }}</strong>
-                </span>
-                @endif
-              </div>
-            </div>
 
             <div class="form-group row">
               <label for="name" class="col-md-3 col-form-label text-md-right">{{ __('Nombres') }}</label>

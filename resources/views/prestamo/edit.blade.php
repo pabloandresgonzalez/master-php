@@ -11,11 +11,11 @@
         <div class="card-body">
           <form method="POST" action="{{ route('prestamo.update') }}" >
             @csrf
-            
+
 
             <input type="hidden" name="prestamo_id" value="{{ $prestamo->id }}" />
-                       
-            
+
+
             <div class="form-group row ">
               <label for="ciudad" class="col-md-3 col-form-label text-md-right">Ciudad</label>
               <div class="col-md-6">
@@ -24,7 +24,7 @@
                 @if($errors->has('ciudad'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('ciudad') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -37,7 +37,7 @@
                 @if($errors->has('bloque'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('bloque') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -50,7 +50,7 @@
                 @if($errors->has('direccion'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('direccion') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -63,7 +63,7 @@
                 @if($errors->has('salon'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('salon') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -76,7 +76,7 @@
                 @if($errors->has('programa'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('programa') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -89,7 +89,7 @@
                 @if($errors->has('celular'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('celular') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -99,15 +99,15 @@
               <div class="col-md-6">
 
                 <select id="estado" name="estado" class="form-control {{ $errors->has('estado') ? 'is-invalid' : '' }}" >
-                <option value="Pendiente">Pendiente</option>
-                <option value="Abierto">Abierto</option>
-                <option value="Cerrado">Cerrado</option>
+                <option value="En tramite">En tramite</option>
+                <option value="En curso">En curso</option>
+                <option value="Terminado">Terminado</option>
                 </select>
 
                 @if($errors->has('estado'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('estado') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -120,7 +120,7 @@
                 @if($errors->has('nombre_activo'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('nombre_activo') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -133,7 +133,7 @@
                 @if($errors->has('serial'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('serial') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -146,10 +146,10 @@
                 @if($errors->has('placa'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('placa') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
-            </div> 
+            </div>
 
             <div class="form-group row">
               <label for="referencia" class="col-md-3 col-form-label text-md-right">Referencia</label>
@@ -159,10 +159,10 @@
                 @if($errors->has('referencia'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('referencia') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
-            </div> 
+            </div>
 
             <div class="form-group row">
               <label for="cantidad" class="col-md-3 col-form-label text-md-right">Cantidad</label>
@@ -172,7 +172,7 @@
                 @if($errors->has('cantidad'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('cantidad') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -186,13 +186,13 @@
                 <option value="Prestamo">Prestamo</option>
                 <option value="Definitiva">Definitiva</option>
                 <option value="Evento">Evento</option>
-                <option value="Reparacion">Reparacion</option>                
+                <option value="Reparacion">Reparacion</option>
                 </select>
 
                 @if($errors->has('salida_por'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('salida_por') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
@@ -205,21 +205,21 @@
                 @if($errors->has('descripcion'))
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $errors->first('descripcion') }}</strong>
-                </span> 
+                </span>
                 @endif
               </div>
             </div>
 
-                        
-            <div class="form-group row">
-              <div class="col-md-6 offset-md-3" >              
-                <input id="user_id" type="submit" class="btn btn-primary" value="Guardar cambios" />                 
-                <a href="{{route('prestamo.detail', ['id' =>$prestamo->id]) }}" class="btn btn-light btn- activo">Regresar</a> 
-              </div>
-            </div>  
 
-                    
-            
+            <div class="form-group row">
+              <div class="col-md-6 offset-md-3" >
+                <input id="user_id" type="submit" class="btn btn-primary" value="Guardar cambios" />
+                <a href="{{route('prestamo.detail', ['id' =>$prestamo->id]) }}" class="btn btn-light btn- activo">Regresar</a>
+              </div>
+            </div>
+
+
+
           </form>
 
 

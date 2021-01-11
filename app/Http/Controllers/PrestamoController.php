@@ -67,7 +67,7 @@ class PrestamoController extends Controller {
     $prestamo->bloque = $bloque;
     $prestamo->direccion = $direccion;
     $prestamo->salon = $salon;
-    $prestamo->estado = 'Pendiente';
+    $prestamo->estado = 'En tramite';
     $prestamo->programa = $programa;
     $prestamo->celular = $celular;
     $prestamo->referencia = $referencia;

@@ -21,7 +21,7 @@
     {{'Salon / Oficina: '.$prestamo->salon }} <br>
     {{'Programa / Cargo: '.$prestamo->programa }} <br>
     <strong>Estado:</strong>
-    @if($prestamo->estado == 'Pendiente' || $prestamo->estado == 'Abierto' )
+    @if($prestamo->estado == 'En tramite' || $prestamo->estado == 'En curso' )
       <span class="badge badge-warning">{{ $prestamo->estado }}</span>
     @else
       <span class="badge badge-success">{{ $prestamo->estado }}</span>
