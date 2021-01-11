@@ -145,10 +145,6 @@ class PrestamoController extends Controller {
     //Conseguir usuario identificado
     $user = \Auth::user();
     $id = $user->id;
-    $name = $user->name;
-    $surname = $user->surname;
-    $cedula = $user->cedula;
-    $email = $user->email;
 
 
     //Validacion del formulario
@@ -192,6 +188,12 @@ class PrestamoController extends Controller {
 
     //Conseguir el bojeto prestamo
     $prestamo = Prestamo::find($prestamo_id);
+
+    $name = $prestamo->name_user;
+    $surname = $prestamo->surname_user;
+    $cedula = $prestamo->cedula_user;
+    //$email = $prestamo->email;
+
     $prestamo->name_user = $name;
     $prestamo->surname_user = $surname;
     $prestamo->cedula_user = $cedula;
@@ -209,7 +211,7 @@ class PrestamoController extends Controller {
     $prestamo->cantidad = $cantidad;
     $prestamo->salida_por = $salida_por;
     $prestamo->descripcion = $descripcion;
-    $prestamo->editado_por = $email;
+    //$prestamo->editado_por = $email;
 
 
     //Actualizar registro
