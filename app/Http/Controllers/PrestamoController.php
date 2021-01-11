@@ -217,7 +217,7 @@ class PrestamoController extends Controller {
 
     if ($saved){
 
-        $prestamo->user->sendFCM("El prestamo #".$prestamo_id."cambio de estado!");
+        $prestamo->user->sendFCM("El prestamo cambio de estado!");
 
     }
 
