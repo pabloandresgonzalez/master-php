@@ -145,6 +145,7 @@ class PrestamoController extends Controller {
     //Conseguir usuario identificado
     $user = \Auth::user();
     $id = $user->id;
+    $email = $user->email;
 
 
     //Validacion del formulario
@@ -164,7 +165,7 @@ class PrestamoController extends Controller {
         'cantidad' => 'required',
         'salida_por' => 'required|string|max:255',
         'descripcion' => 'required|string|max:255',
-        //'editado_por' => 'required',
+        //'editado_por' => 'required|string|max:255'
     ]);
 
     //Recibir los datos del formulario
@@ -183,7 +184,7 @@ class PrestamoController extends Controller {
     $cantidad = $request->input('cantidad');
     $salida_por = $request->input('salida_por');
     $descripcion = $request->input('descripcion');
-    //$editado_por = Rrequest->input
+    //$editado_por = Rrequest->input('editado_por');
 
 
     //Conseguir el bojeto prestamo
@@ -211,7 +212,7 @@ class PrestamoController extends Controller {
     $prestamo->cantidad = $cantidad;
     $prestamo->salida_por = $salida_por;
     $prestamo->descripcion = $descripcion;
-    //$prestamo->editado_por = $email;
+    $prestamo->editado_por = $email;
 
 
     //Actualizar registro
@@ -298,12 +299,5 @@ class PrestamoController extends Controller {
   public function createparqueadero() {
     return view('prestamo.parqueadero');
   }
-
-
-
-
-
-
-
 
 }
