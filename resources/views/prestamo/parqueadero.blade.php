@@ -78,26 +78,6 @@
               </div>
             </div>
 
-            <!--
-            <div class="form-group row">
-              <label for="salida_por" class="col-md-3 col-form-label text-md-right">Salida por:</label>
-              <div class="col-md-6">
-
-                <select id="salida_por" name="salida_por" class="form-control {{ $errors->has('salida_por') ? 'is-invalid' : '' }}" >
-                <option value="Prestamo">Prestamo</option>
-                <option value="Definitiva">Definitiva</option>
-                <option value="Evento">Evento</option>
-                <option value="Reparacion">Reparacion</option>
-                </select>
-
-                @if($errors->has('salida_por'))
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $errors->first('salida_por') }}</strong>
-                </span>
-                @endif
-              </div>
-            </div>
-            -->
 
             <div class="form-group row">
               <label for="celular" class="col-md-3 col-form-label text-md-right">Movil</label>
