@@ -94,9 +94,9 @@
                   <label for="body" class="col-md-6 col-form-label ">{{ __('Mensaje') }}</label>
 
                   <div class="col-md-10">
-                      <textarea id="body" type="text" class="form-control @error('mensaje') is-invalid @enderror" name="body" rows="2" value="" required autocomplete="mensaje" autofocus></textarea>
+                      <textarea id="body" type="text" class="form-control @error('body') is-invalid @enderror" name="body" rows="2" value="" required autocomplete="body" autofocus></textarea>
 
-                      @error('mensaje')
+                      @error('body')
                       <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                       </span>

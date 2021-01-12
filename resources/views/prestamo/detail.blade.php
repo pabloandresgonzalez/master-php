@@ -40,7 +40,7 @@
           {{'Cargo / Programa: '.$prestamo->programa }} <br>
           {{'Actualizado: '.$prestamo->updated_at }} <br>
           <strong>Estado:</strong>
-            @if($prestamo->estado == 'En tramite' || $prestamo->estado == 'En curso' )
+            @if($prestamo->estado == 'En tramite' || $prestamo->estado == 'En curso' || $prestamo->estado == 'Pendiente' || $prestamo->estado == 'Abierto' )
               <span class="badge badge-warning">{{ $prestamo->estado }}</span>
             @else
               <span class="badge badge-success">{{ $prestamo->estado }}</span>
