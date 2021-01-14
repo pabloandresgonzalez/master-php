@@ -17,6 +17,26 @@ form .avatar{
   height: 100%;
 }
 
+.logonavbar {
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+    height: 120px;
+    margin-left: 20px;
+    margin-top: -10px;
+    padding: 0px;
+    border-bottom: 1px #ddd solid;
+    webkit-box-shadow: 0 2px 8px rgba(0,0,0,.175);
+    box-shadow: 0 2px 8px rgba(0,0,0,.175);
+
+}
+
+.imgnavbar {
+  margin-left: 10px;
+  margin-right: 0px;
+}
+
+
+
 .prestamo{
   font-weight: bold;
 }
