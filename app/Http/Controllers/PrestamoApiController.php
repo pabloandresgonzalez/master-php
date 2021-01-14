@@ -12,16 +12,16 @@ class PrestamoApiController extends Controller
 
     public function index(Request $request)
     {
-
     	$user = $request->user();
     	$prestamos = $user->asPrestamos;
 
     	// result de api request con index correcto
     	return response()->json(
-            $prestamos
+    		$prestamos
+    	);
 
-        );
     }
+
 
     public function store(StorePrestamo $request)
     {

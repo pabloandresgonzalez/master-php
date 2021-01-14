@@ -85,7 +85,7 @@ class User extends Authenticatable
   }
 
   public function asPrestamos() {
-    return $this->hasMany(Prestamo::class, 'user_id');
+    return $this->hasMany(Prestamo::class, 'user_id')->orderBy('id', 'desc');
   }
 
   public function authorizeRoles($roles)
