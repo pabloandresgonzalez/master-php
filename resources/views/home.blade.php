@@ -10,7 +10,7 @@
             <div class="row align-items-center">
               <div class="col">
                 <strong>Prestamos UCC</strong><br>
-                <h7 class="mb-0">Bienvenido! selecciona una opción del menú superior y realiza préstamos del parqueadero para bicicletas o los elementos que necesites.</h7>
+                <h7 class="mb-0">Bienvenido! selecciona una opción del menú superior y realiza préstamos de parqueadero para bicicleta o elementos de audiovisuales.</h7>
               </div>
             </div>
           </div>

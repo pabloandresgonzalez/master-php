@@ -15,7 +15,7 @@ class Prestamo extends Model
 
     //para ocultar campos del modelo
      protected $hidden = [
-          'created_at', 'updated_at'
+         // 'created_at', 'updated_at'
       ];
 
   //Relacion uno a mucho
