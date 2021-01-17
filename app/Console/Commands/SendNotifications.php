@@ -43,10 +43,7 @@ class SendNotifications extends Command
      */
     public function handle()
     {
-
-
-
-        $this->info('Buscando prestamos con mas de 5 semana con su  estado en curso');
+        $this->info('Buscando citas');
 
         // fecha prestamo 2021-01-12 11:34:00 updated_at
         // hora actual   2021-01-15 12:12:00
@@ -56,21 +53,23 @@ class SendNotifications extends Command
 
 
         $headers = ["id", "updated_at", "user_id"];
-        $prestamos = $this->getPrestamosMoreDays($now);
+        $prestamos = $this->getPrestamosMoreDays($now->copy());
         //dd($prestamos);
 
-        foreach ($prestamos as $id => $prestamo) {
+        foreach ($prestamos as $prestamo) {
             $prestamo->user_id->sendFCM('El prestamo # '. $prestamo->id .' presenta mas de 8 dias con estado en curso.');
             $this->info('Mensaje enviado al usuario (ID): '. $prestamo->user_id);
         }
 
-        $this->table($headers, $prestamos);
+
+
+        $this->table($headers, $prestamos->toArray());
     }
 
     private function getPrestamosMoreDays($now)
     {
         return Prestamo::where('estado', 'En curso')
                     ->where('updated_at', '>=',  $now->copy()->subDay(3)->toTimeString())
-                    ->get(["id", "updated_at", "user_id"])->toArray();
+                    ->get(["id", "updated_at", "user_id"]);
     }
 }
