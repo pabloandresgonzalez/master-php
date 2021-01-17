@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
 
         //->everyMinute(); , ->hourly();
         $schedule->command('fcm:send')
-            ->everyMinute()
+            ->everyThirtyMinutes()
             ->appendOutputTo($filePath);
     }
 

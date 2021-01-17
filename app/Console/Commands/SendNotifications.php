@@ -52,24 +52,23 @@ class SendNotifications extends Command
         $now = Carbon::now();
 
 
-        $headers = ["id", "updated_at", "user_id"];
-        $prestamos = $this->getPrestamosMoreDays($now->copy());
-        //dd($prestamos);
+        $headers = ['i', 'updated_at', 'user_id'];
 
-        foreach ($prestamos as $prestamo) {
-            $prestamo->user_id->sendFCM('El prestamo # '. $prestamo->id .' presenta mas de 8 dias con estado en curso.');
+        $prestamosPentinetes = $this->getPrestamosMoreDays($now->copy());
+        //dd($prestamosPentinetes);
+
+        foreach ($prestamosPentinetes as $prestamo) {
+            $prestamo->user->sendFCM('El prestamo presenta mas de 8 dias con estado en curso.');
             $this->info('Mensaje enviado al usuario (ID): '. $prestamo->user_id);
         }
 
-
-
-        $this->table($headers, $prestamos->toArray());
+        $this->table($headers, $prestamosPentinetes->toArray());
     }
 
     private function getPrestamosMoreDays($now)
     {
         return Prestamo::where('estado', 'En curso')
                     ->where('updated_at', '>=',  $now->copy()->subDay(3)->toTimeString())
-                    ->get(["id", "updated_at", "user_id"]);
+                    ->get(['id', 'updated_at', 'user_id']);
     }
 }
