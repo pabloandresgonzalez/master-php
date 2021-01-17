@@ -55,6 +55,7 @@ class SendNotifications extends Command
         $headers = ['i', 'updated_at', 'user_id'];
 
         $prestamosPentinetes = $this->getPrestamosMoreDays($now->copy());
+        $this->table($headers, $prestamosPentinetes->toArray());
         //dd($prestamosPentinetes);
 
         foreach ($prestamosPentinetes as $prestamo) {
@@ -62,7 +63,6 @@ class SendNotifications extends Command
             $this->info('Mensaje enviado al usuario (ID): '. $prestamo->user_id);
         }
 
-        $this->table($headers, $prestamosPentinetes->toArray());
     }
 
     private function getPrestamosMoreDays($now)
