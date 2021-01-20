@@ -22,19 +22,19 @@
         </nav>
       </div>
 
-      @foreach($activos as $activo)  
+      @foreach($activos as $activo)
 
       <div class="card pub-prestamo">
 
         <div class="card-header">
           <div class="prestamo" >
             <a href="{{route('activo.detail', ['id' =>$activo->id]) }}" />
-            {{ 'Activo # '.$activo->id }}          
-            <span class="ciudad">              
+            {{ 'Activo # '.$activo->id }}
+            <span class="ciudad">
               {{' | '.$activo->nombre}}
             </span>
             </a>
-            <!-- Carga el qr 
+            <!-- Carga el qr
             <div class="activo" >
               {!! QrCode::size(40)->generate($activo->serial); !!}
             </div>
@@ -42,7 +42,7 @@
           </div>
         </div>
 
-        <div class="card-body body-prestamo">  
+        <div class="card-body body-prestamo">
           {{'Nombre: '.$activo->nombre }} <br>
           {{'Placa: '.$activo->placa }} <br>
           {{'Modelo: '.$activo->modelo }} <br>
@@ -58,7 +58,7 @@
       {{$activos->links()}}
       </div>
 
-    
+
   </div>
   @endsection
 

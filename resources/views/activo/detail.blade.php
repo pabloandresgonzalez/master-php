@@ -23,7 +23,7 @@
             </a>
 
             <div class="activo" >
-            {!! QrCode::size(70)->generate($activo->serial); !!}
+            {!! QrCode::size(100)->generate($activo); !!}
             </div>
 
 
