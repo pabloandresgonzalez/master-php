@@ -34,11 +34,12 @@
               {{' | '.$activo->nombre}}
             </span>
             </a>
-            <!-- Carga el qr
+
             <div class="activo" >
-              {!! QrCode::size(40)->generate($activo->serial); !!}
+              Placa &nbsp;
+              {!! QrCode::size(60)->generate($activo->placa); !!}
             </div>
-            -->
+
           </div>
         </div>
 

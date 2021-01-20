@@ -150,12 +150,12 @@ class PrestamoController extends Controller {
 
     //Validacion del formulario
     $validate = $this->validate($request, [
-        'ciudad' => 'required|string|max:100',
-        'bloque' => 'required|string|max:100',
-        'direccion' => 'required|string|max:255',
-        'salon' => 'required|string|max:255',
-        'programa' => 'required|string|max:255',
-        'celular' => 'required|string|max:255',
+        //'ciudad' => 'required|string|max:100',
+        //'bloque' => 'required|string|max:100',
+        //'direccion' => 'required|string|max:255',
+        //'salon' => 'required|string|max:255',
+        //'programa' => 'required|string|max:255',
+        //'celular' => 'required|string|max:255',
         'salida_por' => 'required|string|max:255',
         'estado' => 'required|string|max:20',
         'nombre_activo' => 'required|string|max:255',
@@ -170,12 +170,12 @@ class PrestamoController extends Controller {
 
     //Recibir los datos del formulario
     $prestamo_id = $request->input('prestamo_id');
-    $ciudad = $request->input('ciudad');
-    $bloque = $request->input('bloque');
-    $direccion = $request->input('direccion');
-    $salon = $request->input('salon');
-    $programa = $request->input('programa');
-    $celular = $request->input('celular');
+    //$ciudad = $request->input('ciudad');
+    //$bloque = $request->input('bloque');
+    //$direccion = $request->input('direccion');
+    //$salon = $request->input('salon');
+    //$programa = $request->input('programa');
+    //$celular = $request->input('celular');
     $estado = $request->input('estado');
     $nombre_activo = $request->input('nombre_activo');
     $serial = $request->input('serial');
@@ -198,13 +198,13 @@ class PrestamoController extends Controller {
     $prestamo->name_user = $name;
     $prestamo->surname_user = $surname;
     $prestamo->cedula_user = $cedula;
-    $prestamo->ciudad = $ciudad;
-    $prestamo->bloque = $bloque;
-    $prestamo->direccion = $direccion;
-    $prestamo->salon = $salon;
+    //$prestamo->ciudad = $ciudad;
+    //$prestamo->bloque = $bloque;
+    //$prestamo->direccion = $direccion;
+    //$prestamo->salon = $salon;
     $prestamo->estado = $estado;
-    $prestamo->programa = $programa;
-    $prestamo->celular = $celular;
+    //$prestamo->programa = $programa;
+    //$prestamo->celular = $celular;
     $prestamo->nombre_activo = $nombre_activo;
     $prestamo->serial = $serial;
     $prestamo->placa = $placa;
