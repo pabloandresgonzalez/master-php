@@ -36,8 +36,9 @@
           </div>
           <br>
 
+          @if($prestamo->estado == 'En tramite' || $prestamo->estado == 'En curso')
 
-            <div class="form-group row">
+          <div class="form-group row">
               <label for="estado" class="col-md-3 col-form-label text-md-right">Cambiar estado</label>
               <div class="col-md-6">
 
@@ -54,6 +55,11 @@
                 @endif
               </div>
             </div>
+
+          @else
+
+
+          @endif
 
             <div class="form-group row">
               <label for="nombre_activo" class="col-md-3 col-form-label text-md-right">Activo</label>
@@ -120,6 +126,9 @@
               </div>
             </div>
 
+            @if($prestamo->estado == 'En tramite' || $prestamo->estado == 'En curso')
+
+            @else
             <div class="form-group row">
               <label for="salida_por" class="col-md-3 col-form-label text-md-right">Salida por:</label>
               <div class="col-md-6">
@@ -140,6 +149,8 @@
               </div>
             </div>
 
+            @endif
+
             <div class="form-group row">
               <label for="descripcion" class="col-md-3 col-form-label text-md-right">Observación</label>
               <div class="col-md-6">
@@ -153,6 +164,20 @@
               </div>
             </div>
 
+            @if(Auth::user()->role == 'admin')
+            <div class="form-group row">
+              <label for="descripcion" class="col-md-3 col-form-label text-md-right">Autorizado</label>
+              <div class="col-md-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Con orden de salida
+                  </label>
+                </div>
+              </div>
+            </div>
+            @endif
+
 
             <div class="form-group row">
               <div class="col-md-6 offset-md-3" >
@@ -163,7 +188,10 @@
 
 
 
+
           </form>
+
+
 
 
 

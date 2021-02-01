@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Prestamo;
+use Cache;
 
 class HomeController extends Controller {
 
@@ -28,7 +29,7 @@ class HomeController extends Controller {
 
     $nombre = $request->get('buscarporpre');
 
-          $prestamos = Prestamo::where('id', 'LIKE', "%$nombre%")
+    $prestamos = Prestamo::where('id', 'LIKE', "%$nombre%")
                         ->orwhere('name_user', 'LIKE', "%$nombre%")
                         ->orwhere('surname_user', 'LIKE', "%$nombre%")
                         ->orwhere('estado', 'LIKE', "%$nombre%")
@@ -38,14 +39,13 @@ class HomeController extends Controller {
                         ->orderBy('id', 'desc')
                         ->paginate(5);
 
-          $users = User::orderBy('id', 'desc')->get();
+     $users = User::orderBy('id', 'desc')->get();
 
 
     return view('/home', [
         'prestamos' => $prestamos,
         'users' => $users
     ]);
-
 
   }
 
