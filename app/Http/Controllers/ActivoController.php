@@ -19,9 +19,9 @@ class ActivoController extends Controller {
   public function create() {
     return view('activo.create');
   }
-  
+
    public function index(Request $request) {
- 
+
       $nombre = $request->get('buscarpor');
 
       $activos = Activo::where('nombre', 'LIKE', "%$nombre%")
@@ -30,12 +30,12 @@ class ActivoController extends Controller {
                         ->orwhere('user_name', 'LIKE', "%$nombre%")
                         ->orderBy('id', 'desc')
                         ->paginate(5);
-   
+
     return view('activo.index', [
         'activos' => $activos
     ]);
-    
-    
+
+
   }
 
   public function save(Request $request) {
@@ -85,7 +85,7 @@ class ActivoController extends Controller {
       //Poner nombre unico
       $image_path_name = time() . $image_path->getClientOriginalName();
 
-      //Guardarla en la carpeta storage (storage/app/activos)        
+      //Guardarla en la carpeta storage (storage/app/activos)
       Storage::disk('activos')->put($image_path_name, File::get($image_path));
 
       //Seteo el nombre de la imagen en el objeto
@@ -98,12 +98,12 @@ class ActivoController extends Controller {
                 'message' => 'Activo creado correctamente!!'
     ]);
   }
-  
+
   public function update(Request $request) {
     //Conseguir usuario identificado
     //$activo = \Activo::activo();
     //$id = $activo->id;
-    
+
     //Validacion del formulario
     $validate = $this->validate($request, [
         'categoria' => 'required',
@@ -114,7 +114,7 @@ class ActivoController extends Controller {
         'serial' => 'required|string|max:100',
         'descripcion' => 'required|string|max:255'
     ]);
-    
+
     //Recoger los datos del formulario
     $activo_id = $request->input('activo_id');
     $categoria = $request->input('categoria');
@@ -124,8 +124,8 @@ class ActivoController extends Controller {
     $modelo = $request->input('modelo');
     $serial = $request->input('serial');
     $descripcion = $request->input('descripcion');
-    
-    
+
+
     //Asignar nuevos valores al objeto del activo
     //Conseguir el bojeto prestamo
     $activo = Activo::find($activo_id);
@@ -137,15 +137,15 @@ class ActivoController extends Controller {
     $activo->modelo = $modelo;
     $activo->serial = $serial;
     $activo->descripcion = $descripcion;
-    
-    
+
+
     //Subir la imagen
     $image_path = $request->file('image_path');
     if ($image_path) {
       //Poner nombre unico
       $image_path_name = time() . $image_path->getClientOriginalName();
 
-      //Guardarla en la carpeta storage (storage/app/activos)        
+      //Guardarla en la carpeta storage (storage/app/activos)
       Storage::disk('activos')->put($image_path_name, File::get($image_path));
 
       //Seteo el nombre de la imagen en el objeto
@@ -155,10 +155,10 @@ class ActivoController extends Controller {
     $activo->save();
 
     return redirect()->route('activos')
-                     ->with(['message' => 'Activo editado correctamente!!']); 
-    
+                     ->with(['message' => 'Activo editado correctamente!!']);
+
   }
-  
+
   public function edit($id) {
     $user = \Auth::user();
     $activo = Activo::find($id);
@@ -171,7 +171,7 @@ class ActivoController extends Controller {
       return redirect()->route('activos');
     }
   }
-  
+
   public function detail($id) {
 
     $activo = Activo::find($id);
@@ -195,7 +195,7 @@ class ActivoController extends Controller {
 
     return redirect()->route('activos')->with([
                   'message' => 'Activo eliminado correctamente!!'
-    ]); 
+    ]);
 
   }
 

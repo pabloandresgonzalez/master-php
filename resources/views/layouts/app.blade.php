@@ -70,7 +70,7 @@
 
               @if(Auth::user()->role == 'admin' || Auth::user()->role == 'auxti' || Auth::user()->role == 'auxactivos' || (Auth::user()->role == 'user'))
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('prestamo.mobiliario') }}">Bienes fijos</a>
+                <a class="nav-link" href="{{ route('prestamo.mobiliario') }}">Salida bienes fijos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('prestamo.parqueadero') }}">Parqueadero</a>
@@ -110,9 +110,6 @@
                   </a>
                   <a class="dropdown-item" href="{{ route('prestamos') }}">
                     Mis prestamos
-                  </a>
-                  <a class="dropdown-item" href="{{ route('configpass') }}">
-                    Cambiar contraseña
                   </a>
                   @if(Auth::user()->role == 'admin')
                   <a class="dropdown-item" href="{{ url('/charts/prestamos/line') }}">

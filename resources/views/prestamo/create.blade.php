@@ -16,7 +16,7 @@
             <div class="form-group row ">
               <label for="ciudad" class="col-md-3 col-form-label text-md-right">Ciudad</label>
               <div class="col-md-6">
-                <input id="ciudad" type="text" name="ciudad" class="form-control {{ $errors->has('ciudad') ? 'is-invalid' : '' }}" required />
+                <input id="ciudad" type="text" name="ciudad" class="form-control {{ $errors->has('ciudad') ? 'is-invalid' : '' }}" required placeholder="Ciudad  donde haces el prestamo…"/>
 
                 @if($errors->has('ciudad'))
                 <span class="invalid-feedback" role="alert">
@@ -27,9 +27,9 @@
             </div>
 
             <div class="form-group row">
-              <label for="bloque" class="col-md-3 col-form-label text-md-right">Bloque</label>
+              <label for="bloque" class="col-md-3 col-form-label text-md-right">Bloque / Casa</label>
               <div class="col-md-6">
-                <input id="bloque" type="text" name="bloque" class="form-control {{ $errors->has('bloque') ? 'is-invalid' : '' }}" required />
+                <input id="bloque" type="text" name="bloque" class="form-control {{ $errors->has('bloque') ? 'is-invalid' : '' }}" required placeholder="Donde usaras el elmento…"/>
 
                 @if($errors->has('bloque'))
                 <span class="invalid-feedback" role="alert">
@@ -42,7 +42,7 @@
             <div class="form-group row">
               <label for="direccion" class="col-md-3 col-form-label text-md-right">Direccion</label>
               <div class="col-md-6">
-                <input id="direccion" type="text" name="direccion" class="form-control {{ $errors->has('direccion') ? 'is-invalid' : '' }}" required />
+                <input id="direccion" type="text" name="direccion" class="form-control {{ $errors->has('direccion') ? 'is-invalid' : '' }}" required placeholder="Donde lo podremos ubicar…"/>
 
                 @if($errors->has('direccion'))
                 <span class="invalid-feedback" role="alert">
@@ -55,7 +55,7 @@
             <div class="form-group row">
               <label for="salon" class="col-md-3 col-form-label text-md-right">Salon / Oficina</label>
               <div class="col-md-6">
-                <input id="salon" type="text" name="salon" class="form-control {{ $errors->has('salon') ? 'is-invalid' : '' }}" required />
+                <input id="salon" type="text" name="salon" class="form-control {{ $errors->has('salon') ? 'is-invalid' : '' }}" required placeholder="El # de salon o lugar donde lo ubicaras…"/>
 
                 @if($errors->has('salon'))
                 <span class="invalid-feedback" role="alert">
@@ -68,7 +68,7 @@
             <div class="form-group row">
               <label for="programa" class="col-md-3 col-form-label text-md-right">Cargo / Programa</label>
               <div class="col-md-6">
-                <input id="programa" type="text" name="programa" class="form-control {{ $errors->has('programa') ? 'is-invalid' : '' }}" required />
+                <input id="programa" type="text" name="programa" class="form-control {{ $errors->has('programa') ? 'is-invalid' : '' }}" required placeholder="Programa que cursas o tu cargo…"/>
 
                 @if($errors->has('programa'))
                 <span class="invalid-feedback" role="alert">
