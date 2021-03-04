@@ -38,118 +38,32 @@
                 @endif
               </div>
             </div>
-
-            <hr>
-
-            <div class="form-group row">
-              <label for="name" class="col-md-3 col-form-label text-md-right">{{ __('Nombres') }}</label>
-              <div class="col-md-6">
-                <input id="name" type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ $user->name }}" readonly="readonly" required />
-
-                @if($errors->has('name'))
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $errors->first('name') }}</strong>
-                </span>
-                @endif
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="surname" class="col-md-3 col-form-label text-md-right">{{ __('Apellidos') }}</label>
-              <div class="col-md-6">
-                <input id="surname" type="text" name="surname" class="form-control {{ $errors->has('surname') ? 'is-invalid' : '' }}" value="{{ $user->surname }}" readonly="readonly" required />
-
-                @if($errors->has('surname'))
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $errors->first('surname') }}</strong>
-                </span>
-                @endif
-              </div>
-            </div>
-
-
-            <div class="form-group row">
-              <label for="cedula" class="col-md-3 col-form-label text-md-right">{{ __('Idetificacion') }}</label>
-              <div class="col-md-6">
-                <input id="cedula" type="text" name="cedula" class="form-control {{ $errors->has('cedula') ? 'is-invalid' : '' }}" value="{{ $user->cedula }}" readonly="readonly" required />
-
-                @if($errors->has('cedula'))
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $errors->first('cedula') }}</strong>
-                </span>
-                @endif
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="email" class="col-md-3 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                <div class="col-md-6">
-                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" readonly="readonly" required autocomplete="email">
-
-                  @error('email')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                        </span>
-                  @enderror
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <label for="celular" class="col-md-3 col-form-label text-md-right">Movil</label>
-
-                  <div class="col-md-6">
-                    <input id="celular" type="number" class="form-control @error('celular') is-invalid @enderror" name="celular" value="{{ $user->celular }}" readonly="readonly" required autocomplete="celular" autofocus>
-
-                    @error('celular')
-                      <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                      </span>
-                    @enderror
-                </div>
-              </div>
-
-              <div class="form-group row">
-
-              </div>
-              <!-- Ocional si se permite que el admin cambie la img de avatar del usuario
-                {{--
-              <div class="form-group row">
-                <label for="image_path" class="col-md-3 col-form-label text-md-right">{{ __('Avatar') }}</label>
-
-                  <div class="col-md-6">
-                     @if(Auth::user()->image)
-                      <img src="{{ route('user.avatar',['filename'=> $user->image]) }}" class="avatar" />
-                    @endif
-                      <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path"  >
-
-                    @if ($errors->has('image_path'))
-                      <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('image_path') }}</strong>
-                      </span>
-                    @endif
+            <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow">
+                  <div class="card-header bg-transparent">
+                    <div class="row align-items-center">
+                      <div class="col" style="font-size: 12px">
+                        <label for="name" style="margin-bottom: 1px" class="col-md-8">Nombres:  {{ $user->name }}</label><br>
+                        <label for="surname" style="margin-bottom: 1px" class="col-md-8">Apellidos:  {{ $user->surname }}</label><br>
+                        <label for="cedula" style="margin-bottom: 1px" class="col-md-8">Identificacion:  {{ $user->cedula }}</label><br>
+                        <label for="email" style="margin-bottom: 1px" class="col-md-8">Email:  {{ $user->email }}</label><br>
+                        <label for="celular" style="margin-bottom: 1px" class="col-md-8">Movil:  {{ $user->celular }}</label><br>
+                        </div>
+                    </div>
                   </div>
-              </div>
-              --}}
-            -->
-
-
+                </div>
+            </div>
+          </div>
+          <br>
             <div class="form-group row">
               <div class="col-md-6 offset-md-3" >
                 <input id="user_id" type="submit" class="btn btn-primary" value="Guardar cambios" />
-
               </div>
             </div>
-
           </form>
-
-
-
-
         </div>
-
       </div>
-
     </div>
   </div>
 </div>

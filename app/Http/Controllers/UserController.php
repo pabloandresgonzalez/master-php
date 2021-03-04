@@ -185,6 +185,4 @@ class UserController extends Controller
   }
 
 
-
-
 }

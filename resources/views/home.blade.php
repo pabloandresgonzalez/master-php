@@ -63,7 +63,7 @@
             <div class="row align-items-center">
               <div class="col">
                 <strong>Notificacíon general</strong><br>
-                <h7 class="mb-0">Eviar a todos los usuarios</h7>
+                <h7 class="mb-0">Eviar a todos los usuarios android</h7>
               </div>
             </div>
           </div>
