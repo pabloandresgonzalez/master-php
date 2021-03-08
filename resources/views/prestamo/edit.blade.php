@@ -183,7 +183,8 @@
                 <label for="image_path" class="col-md-3 col-form-label text-md-right">{{ __('Orden de salida') }}</label>
 
                 <div class="col-md-6">
-                    <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path">
+
+                        <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path"  >
 
                     @if ($errors->has('image_path'))
                     <span class="invalid-feedback" role="alert">
@@ -216,8 +217,11 @@
                     <label for="image_path" class="col-md-3 col-form-label text-md-right">{{ __('Orden de salida') }}</label>
 
                     <div class="col-md-6">
-
-                        <input disabled id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path" value="{{ route('bici.avatar',['filename'=>$prestamo->image]) }}">
+                      <br>
+                      <a href="" target="-blank" >
+                        <img src="{{ route('prestamo.avatar',['filename'=>$prestamo->image]) }}" class="avatar" />
+                      </a>
+                        <input disabled id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path" value="{{ route('bici.avatar',['filename'=>$prestamo->image]) }}" />
 
                         @if ($errors->has('image_path'))
                         <span class="invalid-feedback" role="alert">

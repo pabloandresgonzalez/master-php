@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StorePrestamo;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Response;
 use App\Prestamo;
 use App\User;
 
@@ -324,7 +325,8 @@ class PrestamoController extends Controller {
     {
 
         $file = Storage::disk('ordenes')->get($filename);
-        return new Response($file, 600);
+        return new Response($file, 200);
     }
+
 
 }

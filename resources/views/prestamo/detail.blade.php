@@ -15,7 +15,7 @@
         <div class="card-header">
 
           <div class="prestamo" >
-
+            <a>
             {{ 'Prestamo # '.$prestamo->id }}
             <span class="ciudad">
               {{' / '.\FormatTime::LongTimeFilter($prestamo->created_at) }}
