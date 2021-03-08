@@ -58,6 +58,7 @@ Route::get('/prestamo/{id}', 'PrestamoController@detail')->name('prestamo.detail
 Route::get('/prestamo', 'PrestamoController@index')->name('prestamos');
 Route::get('/prestamo/editar/edit/{id}', 'PrestamoController@edit')->name('prestamo.edit');
 Route::post('/prestamo/update', 'PrestamoController@update')->name('prestamo.update');
+Route::get('/prestamo/avatar/{filename?}', 'PrestamoController@getImage')->name('prestamo.avatar');
 
 //Prestamo Mobiliario
 Route::get('/subir-mobiliario', 'PrestamoController@createmobiliario')->name('prestamo.mobiliario');

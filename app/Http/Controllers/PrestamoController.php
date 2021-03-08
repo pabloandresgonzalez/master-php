@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePrestamo;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use App\Prestamo;
 use App\User;
+
 
 class PrestamoController extends Controller {
 
@@ -166,6 +169,8 @@ class PrestamoController extends Controller {
         'salida_por' => 'required|string|max:255',
         'descripcion' => 'required|string|max:255',
         //'editado_por' => 'required|string|max:255'
+        'image_path' => 'image'
+
     ]);
 
     //Recibir los datos del formulario
@@ -185,6 +190,7 @@ class PrestamoController extends Controller {
     $salida_por = $request->input('salida_por');
     $descripcion = $request->input('descripcion');
     //$editado_por = Rrequest->input('editado_por');
+
 
 
     //Conseguir el bojeto prestamo
@@ -213,6 +219,20 @@ class PrestamoController extends Controller {
     $prestamo->salida_por = $salida_por;
     $prestamo->descripcion = $descripcion;
     $prestamo->editado_por = $email;
+
+
+    //Subir la imagen
+        $image_path = $request->file('image_path');
+        if ($image_path) {
+            //Poner nombre unico
+            $image_path_name = time() . $image_path->getClientOriginalName();
+
+            //Guardarla en la carpeta storage (storage/app/activos)
+            Storage::disk('ordenes')->put($image_path_name, File::get($image_path));
+
+            //Seteo el nombre de la imagen en el objeto
+            $prestamo->image = $image_path_name;
+        }
 
 
     //Actualizar registro
@@ -299,5 +319,12 @@ class PrestamoController extends Controller {
   public function createparqueadero() {
     return view('prestamo.parqueadero');
   }
+
+  public function getImage($filename)
+    {
+
+        $file = Storage::disk('ordenes')->get($filename);
+        return new Response($file, 600);
+    }
 
 }

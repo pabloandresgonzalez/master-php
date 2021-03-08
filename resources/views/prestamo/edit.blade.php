@@ -9,7 +9,7 @@
         <div class="card-header">Editar prestamo</div>
 
         <div class="card-body">
-          <form method="POST" action="{{ route('prestamo.update') }}" >
+          <form method="POST" action="{{ route('prestamo.update') }}" enctype="multipart/form-data" >
             @csrf
 
 
@@ -36,6 +36,8 @@
           </div>
           <br>
 
+          @if($prestamo->estado == 'En tramite')
+
           <div class="form-group row">
               <label for="estado" class="col-md-3 col-form-label text-md-right">Cambiar estado</label>
               <div class="col-md-6">
@@ -53,6 +55,28 @@
                 @endif
               </div>
             </div>
+
+            @else
+
+            <div class="form-group row">
+              <label for="estado" class="col-md-3 col-form-label text-md-right">Cambiar estado</label>
+              <div class="col-md-6">
+
+                <select id="estado" name="estado" class="form-control {{ $errors->has('estado') ? 'is-invalid' : '' }}" >
+                <option value="En curso">En curso</option>
+                <option value="Terminado">Terminado</option>
+                </select>
+
+                @if($errors->has('estado'))
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $errors->first('estado') }}</strong>
+                </span>
+                @endif
+              </div>
+            </div>
+
+            @endif
+
 
 
             <div class="form-group row">
@@ -120,9 +144,21 @@
               </div>
             </div>
 
-            @if($prestamo->estado == 'En tramite' || $prestamo->estado == 'En curso')
+            <div class="form-group row">
+              <label for="descripcion" class="col-md-3 col-form-label text-md-right">Observación</label>
+              <div class="col-md-6">
+                <textarea id="descripcion" type="text" name="descripcion" class="form-control {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" value="{{ $prestamo->descripcion }}" required >{{ $prestamo->descripcion }}</textarea>
 
-            @else
+                @if($errors->has('descripcion'))
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $errors->first('descripcion') }}</strong>
+                </span>
+                @endif
+              </div>
+            </div>
+
+            @if($prestamo->estado == 'En tramite')
+
             <div class="form-group row">
               <label for="salida_por" class="col-md-3 col-form-label text-md-right">Salida por:</label>
               <div class="col-md-6">
@@ -143,20 +179,57 @@
               </div>
             </div>
 
-            @endif
+            <div class="form-group row">
+                <label for="image_path" class="col-md-3 col-form-label text-md-right">{{ __('Orden de salida') }}</label>
+
+                <div class="col-md-6">
+                    <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path">
+
+                    @if ($errors->has('image_path'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('image_path') }}</strong>
+                    </span>
+                    @endif
+                </div>
+            </div>
+
+            @else
 
             <div class="form-group row">
-              <label for="descripcion" class="col-md-3 col-form-label text-md-right">Observación</label>
-              <div class="col-md-6">
-                <textarea id="descripcion" type="text" name="descripcion" class="form-control {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" value="{{ $prestamo->descripcion }}" required >{{ $prestamo->descripcion }}</textarea>
+              <label for="salida_por" class="col-md-3 col-form-label text-md-right">Salida por:</label>
 
-                @if($errors->has('descripcion'))
+              <div class="col-md-6">
+                <select id="salida_por" name="salida_por" class="form-control {{ $errors->has('salida_por') ? 'is-invalid' : '' }}" >
+                <option value="No aplica">{{ $prestamo->salida_por}}</option>
+
+                </select>
+
+                @if($errors->has('salida_por'))
                 <span class="invalid-feedback" role="alert">
-                  <strong>{{ $errors->first('descripcion') }}</strong>
+                  <strong>{{ $errors->first('salida_por') }}</strong>
                 </span>
                 @endif
               </div>
             </div>
+
+            <div class="form-group row">
+                    <label for="image_path" class="col-md-3 col-form-label text-md-right">{{ __('Orden de salida') }}</label>
+
+                    <div class="col-md-6">
+
+                        <input disabled id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path" value="{{ route('bici.avatar',['filename'=>$prestamo->image]) }}">
+
+                        @if ($errors->has('image_path'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('image_path') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                </div>
+
+            @endif
+
+
 
 
             <div class="form-group row">

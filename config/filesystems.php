@@ -54,34 +54,41 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
-        
+
         'users' => [
             'driver' => 'local',
             'root' => storage_path('app/users'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
-        
+
         'images' => [
             'driver' => 'local',
             'root' => storage_path('app/images'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
-        
+
         'activos' => [
             'driver' => 'local',
             'root' => storage_path('app/activos'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
-        ],  
-        
+        ],
+
         'ciclas' => [
             'driver' => 'local',
             'root' => storage_path('app/ciclas'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
-        ], 
+        ],
+
+        'ordenes' => [
+            'driver' => 'local',
+            'root' => storage_path('app/ordenes'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',
