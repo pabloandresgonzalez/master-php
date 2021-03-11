@@ -23,6 +23,7 @@
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id}}" />
                 <input type="hidden" name="user_name" value="{{ Auth::user()->name}}" />
                 <input type="hidden" name="user_surname" value="{{ Auth::user()->surname}}" />
+                <input type="hidden" name="cedula" value="{{ Auth::user()->cedula}}" />
 
 
                 <div class="form-group row">

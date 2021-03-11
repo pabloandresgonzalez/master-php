@@ -77,6 +77,7 @@ class BiciController extends Controller
         $bicicleta->user_id = $id;
         $bicicleta->user_name = $name;
         $bicicleta->user_surname = $surname;
+        $bicicleta->cedula = $cedula;
         $bicicleta->modelo = $modelo;
         $bicicleta->serial = $serial;
         $bicicleta->tipo = $tipo;
@@ -118,6 +119,7 @@ class BiciController extends Controller
         $validate = $this->validate($request, [
             'user_name' => 'required|string|max:100',
             'user_surname' => 'required|string|max:100',
+            'cedula' => 'required|string|max:100',
             'modelo' => 'required|string|max:255',
             'serial' => 'required|string|max:100',
             'tipo' => 'required|string|max:100',
@@ -128,6 +130,7 @@ class BiciController extends Controller
         $id = $request->input('id');
         $user_id = $request->input('user_id');
         $user_name = $request->input('user_name');
+        $cedula = $request->input('cedula');
         $user_surname = $request->input('user_surname');
         $modelo = $request->input('modelo');
         $serial = $request->input('serial');
@@ -140,6 +143,7 @@ class BiciController extends Controller
         $bicicleta->user_id = $user_id;
         $bicicleta->user_name = $user_name;
         $bicicleta->user_surname = $user_surname;
+        $bicicleta->cedula = $cedula;
         $bicicleta->modelo = $modelo;
         $bicicleta->serial = $serial;
         $bicicleta->tipo = $tipo;

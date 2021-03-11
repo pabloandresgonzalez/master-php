@@ -55,11 +55,11 @@
 
         <div class="card-body body-prestamo">
           {{'Propietario: '.$bicicleta->user_name. ' '. $bicicleta->user_surname }} <br>
+          {{'N° Identificacion: '.$bicicleta->cedula }} <br>
           {{'Modelo: '.$bicicleta->modelo }} <br>
           {{'Serial: '.$bicicleta->serial }} <br>
           {{'Tipo: '.$bicicleta->tipo }} <br>
           {{'Color: '.$bicicleta->color }} <br>
-          {{'Color: '.$bicicleta->image }} <br>
 
         </div>
 

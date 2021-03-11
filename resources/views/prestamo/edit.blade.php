@@ -234,8 +234,6 @@
             @endif
 
 
-
-
             <div class="form-group row">
               <div class="col-md-6 offset-md-3" >
                 <input id="user_id" type="submit" class="btn btn-primary" value="Guardar cambios" />
