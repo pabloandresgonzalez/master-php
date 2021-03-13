@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\AuthController;
+use App\Notifications\ResetPasswordNotification;
 
 
 
@@ -130,6 +131,17 @@ class User extends Authenticatable
               'title' => config('app.name'),
               'body' => $message
           ])->send();
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 
 }
