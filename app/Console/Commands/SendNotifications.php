@@ -43,8 +43,9 @@ class SendNotifications extends Command
      */
     public function handle()
     {
-        /*
+
         $this->info('Buscando prestamos con estado en curso');
+        /*
 
         //formato fecha                         2021-03-15 09:09:52
         //fecha carbon                          2021-03-15 14:17:13.642210 America/Bogota (-05:00)
