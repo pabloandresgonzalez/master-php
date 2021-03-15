@@ -59,8 +59,9 @@ class SendNotifications extends Command
         //dd($prestamosPentinetes);
 
         foreach ($prestamosPentinetes as $prestamo) {
-            $prestamo->name_user->sendFCM('El prestamo presenta mas de 3 dias con estado en curso.');
-            $this->info('Mensaje enviado al usuario (ID): '. $prestamo->user_id);
+
+            $prestamo->user->sendFCM('El prestamo presenta mas de 3 dias con estado en curso.');
+            $this->info('Mensaje enviado al usuario (ID): '. $prestamo->user);
         }
 
     }
@@ -73,34 +74,5 @@ class SendNotifications extends Command
     }
 
 
-        /*
 
-        // fecha prestamo 2021-01-14 21:14:00 updated_at
-        // hora actual   2021-01-17 21:15:00
-        // updated_at
-        //$now = new \DateTime();
-        $now = Carbon::now();
-
-
-        $headers = ['id', 'updated_at', 'user_id'];
-
-        $prestamosPentinetes = $this->getPrestamosMoreDays($now->copy());
-        $this->table($headers, $prestamosPentinetes->toArray());
-        //dd($prestamosPentinetes);
-
-        foreach ($prestamosPentinetes as $prestamo) {
-            $prestamo->user_id->sendFCM('El prestamo presenta mas de 3 dias con estado en curso.');
-            $this->info('Mensaje enviado al usuario (ID): '. $prestamo->user_id);
-        }
-
-    }
-
-    private function getPrestamosMoreDays($now)
-    {
-        return Prestamo::where('estado', 'Terminado')
-                    ->where('updated_at', '>=',  $now->copy()->subDay(3)->toTimeString())
-                    ->get(['id', 'updated_at', 'user_id']);
-    }
-
-    */
 }

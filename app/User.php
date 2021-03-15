@@ -82,7 +82,7 @@ class User extends Authenticatable
     }
 
   public function prestamos() {
-  return $this->hasMany('App\Prestamos');
+    return $this->hasMany('App\Prestamos');
   }
 
   public function asPrestamos() {
