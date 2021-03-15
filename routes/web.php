@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 });
 
+
 //Generales
 Auth::routes();
 
