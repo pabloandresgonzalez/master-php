@@ -60,7 +60,7 @@ class SendNotifications extends Command
 
         foreach ($prestamosPentinetes as $prestamo) {
 
-            $prestamo->user->sendFCM('Tienes préstamos con 8 días estado en curso, ¡echa un vistazo!.');
+            $prestamo->user->sendFCM('Tienes préstamos con mas de 8 días con estado en curso, ¡echa un vistazo!.');
             $this->info('Mensaje enviado al usuario (ID): '. $prestamo->user);
         }
 
