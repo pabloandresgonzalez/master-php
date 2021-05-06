@@ -36,8 +36,8 @@
             </a>
 
             <div class="activo" >
-              Placa &nbsp;
-              {!! QrCode::size(60)->generate($activo->placa); !!}
+              Serial &nbsp;
+              {!! QrCode::size(60)->generate($activo->serial); !!}
             </div>
 
           </div>

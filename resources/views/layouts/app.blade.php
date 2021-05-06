@@ -68,7 +68,7 @@
                 <a class="nav-link" href="{{ route('prestamo.create') }}">Audiovisuales</a>
               </li>
 
-              @if(Auth::user()->role == 'admin' || Auth::user()->role == 'auxti' || Auth::user()->role == 'auxactivos' || (Auth::user()->role == 'user'))
+              @if(Auth::user()->role == 'admin' || Auth::user()->role == 'auxti' || Auth::user()->role == 'auxactivos' || (Auth::user()->role == 'user' || Auth::user()->role == 'Estudiante' || Auth::user()->role == 'Docente' || Auth::user()->role == 'Funcionario' || Auth::user()->role == 'Visitante'))
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('prestamo.mobiliario') }}">Salida bienes fijos</a>
               </li>

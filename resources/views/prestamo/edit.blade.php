@@ -201,7 +201,7 @@
 
               <div class="col-md-6">
                 <select id="salida_por" name="salida_por" class="form-control {{ $errors->has('salida_por') ? 'is-invalid' : '' }}" >
-                <option value="No aplica">{{ $prestamo->salida_por}}</option>
+                <option value="{{ $prestamo->salida_por}}">{{ $prestamo->salida_por}}</option>
 
                 </select>
 
@@ -218,7 +218,7 @@
 
                     <div class="col-md-6">
                       <br>
-                      <a href="" target="-blank" >
+                      <a href="{{ route('prestamo.orden', ['id' =>$prestamo->id]) }}" target="-blank" >
                         <img src="{{ route('prestamo.avatar',['filename'=>$prestamo->image]) }}" class="avatar" />
                       </a>
                         <input disabled id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path" value="{{ route('bici.avatar',['filename'=>$prestamo->image]) }}" />

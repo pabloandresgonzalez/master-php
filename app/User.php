@@ -11,6 +11,7 @@ use Laravel\Passport\HasApiTokens;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\AuthController;
 use App\Notifications\ResetPasswordNotification;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -40,6 +41,7 @@ class User extends Authenticatable
 
 
     public static $rules = [
+            'role' => 'required|string|max:255',
             'name' => 'required|string|max:255',
             'surname' => 'required|string|max:255',
             'cedula' => 'required|string|max:255',
@@ -52,12 +54,13 @@ class User extends Authenticatable
     {
 
         return self::create([
-            'role' => 'user',
+            //'role' => 'user',
+            'role' => $data['role'],
             'name' => $data['name'],
             'surname' => $data['surname'],
             'cedula' => $data['cedula'],
             'email' => $data['email'],
-            'celular' => $data['celular'],
+            'celular' => $data['celular'],//1615479596blank-profile-picture-973460_640
             'password' => Hash::make($data['password']),
 
         ]);

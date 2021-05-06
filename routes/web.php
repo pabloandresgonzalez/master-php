@@ -56,10 +56,12 @@ Route::get('/bici/delete/{id}', 'BiciController@delete')->name('bici.delete');
 Route::get('/subir-prestamo', 'PrestamoController@create')->name('prestamo.create');
 Route::post('/prestamo/save', 'PrestamoController@save')->name('prestamo.save');
 Route::get('/prestamo/{id}', 'PrestamoController@detail')->name('prestamo.detail');
+Route::get('/orden/{id}', 'PrestamoController@orden')->name('prestamo.orden');
 Route::get('/prestamo', 'PrestamoController@index')->name('prestamos');
 Route::get('/prestamo/editar/edit/{id}', 'PrestamoController@edit')->name('prestamo.edit');
 Route::post('/prestamo/update', 'PrestamoController@update')->name('prestamo.update');
 Route::get('/prestamo/avatar/{filename?}', 'PrestamoController@getImage')->name('prestamo.avatar');
+
 
 //Prestamo Mobiliario
 Route::get('/subir-mobiliario', 'PrestamoController@createmobiliario')->name('prestamo.mobiliario');

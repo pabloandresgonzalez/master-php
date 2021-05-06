@@ -12,11 +12,29 @@
           <form method="POST" action="{{ route('prestamo.save') }}" >
             @csrf
 
-
-            <div class="form-group row ">
+            <div class="form-group row">
               <label for="ciudad" class="col-md-3 col-form-label text-md-right">Ciudad</label>
               <div class="col-md-6">
-                <input id="ciudad" type="text" name="ciudad" class="form-control {{ $errors->has('ciudad') ? 'is-invalid' : '' }}" required title="Ciudad del prestamo" placeholder="Ciudad del prestamo"/>
+
+                <select id="ciudad" name="ciudad" title="Selecciona el area al que pertenece el articulo" class="form-control {{ $errors->has('ciudad') ? 'is-invalid' : '' }}" >
+                <option value="Apartadó">Apartadó</option>
+                <option value="Arauca">Arauca</option>
+                <option value="Barrancabermeja">Barrancabermeja</option>
+                <option value="Bogotá">Bogotá</option>
+                <option value="Bucaramanga">Bucaramanga</option>
+                <option value="Cali">Cali</option>
+                <option value="Ibagué - Espina">Ibagué - Espinal</option>
+                <option value="Medellín - Envigado">Medellín - Envigado</option>
+                <option value="Montería">Montería</option>
+                <option value="Neiva">Neiva</option>
+                <option value="Pasto">Pasto</option>
+                <option value="Pereira - Cartago">Pereira - Cartago</option>
+                <option value="Popayán">Popayán</option>
+                <option value="Quibdó">Quibdó</option>
+                <option value="Cali">Cali</option>
+                <option value="Santa Marta">Santa Marta</option>
+                <option value="Villavicencio">Villavicencio</option>
+                </select>
 
                 @if($errors->has('ciudad'))
                 <span class="invalid-feedback" role="alert">
@@ -25,6 +43,7 @@
                 @endif
               </div>
             </div>
+
 
             <div class="form-group row">
               <label for="bloque" class="col-md-3 col-form-label text-md-right">Bloque</label>

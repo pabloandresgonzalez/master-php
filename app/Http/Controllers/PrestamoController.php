@@ -97,7 +97,6 @@ class PrestamoController extends Controller {
     ]);
   }
 
-
   public function index() {
     //Conseguir usuario identificado
     $user = \Auth::user();
@@ -326,6 +325,16 @@ class PrestamoController extends Controller {
 
         $file = Storage::disk('ordenes')->get($filename);
         return new Response($file, 200);
+    }
+
+  public function orden($id)
+    {
+        $prestamo = Prestamo::find($id);
+
+        return view('prestamo.orden', [
+            'prestamo' => $prestamo
+        ]);
+
     }
 
 
