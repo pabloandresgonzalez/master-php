@@ -13,10 +13,29 @@
             @csrf
 
 
-            <div class="form-group row ">
+            <div class="form-group row">
               <label for="ciudad" class="col-md-3 col-form-label text-md-right">Ciudad</label>
               <div class="col-md-6">
-                <input id="ciudad" type="text" name="ciudad" class="form-control {{ $errors->has('ciudad') ? 'is-invalid' : '' }}" required title="Ciudad del prestamo" placeholder="Ciudad del prestamo" />
+
+                <select id="ciudad" name="ciudad" title="Selecciona el area al que pertenece el articulo" class="form-control {{ $errors->has('ciudad') ? 'is-invalid' : '' }}" >
+                <option value="Apartadó">Apartadó</option>
+                <option value="Arauca">Arauca</option>
+                <option value="Barrancabermeja">Barrancabermeja</option>
+                <option value="Bogotá">Bogotá</option>
+                <option value="Bucaramanga">Bucaramanga</option>
+                <option value="Cali">Cali</option>
+                <option value="Ibagué - Espina">Ibagué - Espinal</option>
+                <option value="Medellín - Envigado">Medellín - Envigado</option>
+                <option value="Montería">Montería</option>
+                <option value="Neiva">Neiva</option>
+                <option value="Pasto">Pasto</option>
+                <option value="Pereira - Cartago">Pereira - Cartago</option>
+                <option value="Popayán">Popayán</option>
+                <option value="Quibdó">Quibdó</option>
+                <option value="Cali">Cali</option>
+                <option value="Santa Marta">Santa Marta</option>
+                <option value="Villavicencio">Villavicencio</option>
+                </select>
 
                 @if($errors->has('ciudad'))
                 <span class="invalid-feedback" role="alert">
@@ -66,33 +85,6 @@
             </div>
 
             <div class="form-group row">
-              <label for="programa" class="col-md-3 col-form-label text-md-right">Cargo / Programa</label>
-              <div class="col-md-6">
-                <input id="programa" type="text" name="programa" class="form-control {{ $errors->has('programa') ? 'is-invalid' : '' }}" required title="Programa que cursas o tu cargo" placeholder="Programa que cursas o tu cargo" />
-
-                @if($errors->has('programa'))
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $errors->first('programa') }}</strong>
-                </span>
-                @endif
-              </div>
-            </div>
-
-
-            <div class="form-group row">
-              <label for="celular" class="col-md-3 col-form-label text-md-right">Movil</label>
-              <div class="col-md-6">
-                <input id="celular" type="number" name="celular" class="form-control {{ $errors->has('celular') ? 'is-invalid' : '' }}" value="" title="Tu numero de celular" required placeholder="Tu numero de celular" />
-
-                @if($errors->has('celular'))
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $errors->first('celular') }}</strong>
-                </span>
-                @endif
-              </div>
-            </div>
-
-            <div class="form-group row">
               <label for="descripcion" class="col-md-3 col-form-label text-md-right">Observación</label>
               <div class="col-md-6">
                 <textarea id="descripcion" type="text" name="descripcion" class="form-control {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" value="" placeholder="P. ej.: Asistes o dictas clase, eres administrativo o visitante…" required ></textarea>
@@ -107,10 +99,34 @@
 
 
             <div class="form-group row">
-
               <div class="col-md-6 offset-md-3" >
                 <input id="user_id" type="submit" class="btn btn-primary" value="Hacer solicitud" />
+              </div>
+            </div>
 
+            <div class="form-group row">
+              <label for="programa" hidden="true"  class="col-md-3 col-form-label text-md-right">Cargo / Rol</label>
+              <div class="col-md-6">
+                <input id="programa" value="{{ Auth::user()->role }}" type="text" name="programa" class="form-control {{ $errors->has('programa') ? 'is-invalid' : '' }}" hidden="true"  required title="Programa que cursas o tu cargo" placeholder="Estudiante o tu cargo" />
+
+                @if($errors->has('programa'))
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $errors->first('programa') }}</strong>
+                </span>
+                @endif
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="celular" hidden="true"  class="col-md-3 col-form-label text-md-right">Movil</label>
+              <div class="col-md-6">
+                <input id="celular" type="number" value="{{ Auth::user()->celular }}" name="celular" class="form-control {{ $errors->has('celular') ? 'is-invalid' : '' }}" value="" title="Tu numero de celular" placeholder="Tu numero de celular" hidden="true"  required />
+
+                @if($errors->has('celular'))
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $errors->first('celular') }}</strong>
+                </span>
+                @endif
               </div>
             </div>
 

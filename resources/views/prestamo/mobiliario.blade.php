@@ -85,34 +85,6 @@
             </div>
 
             <div class="form-group row">
-              <label for="programa" class="col-md-3 col-form-label text-md-right">Cargo / rol</label>
-              <div class="col-md-6">
-                <input id="programa" type="text" name="programa" class="form-control {{ $errors->has('programa') ? 'is-invalid' : '' }}" required title="Estudiante o tu cargo" placeholder="Estudiante o tu cargo"/>
-
-                @if($errors->has('programa'))
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $errors->first('programa') }}</strong>
-                </span>
-                @endif
-              </div>
-            </div>
-
-
-
-            <div class="form-group row">
-              <label for="celular" class="col-md-3 col-form-label text-md-right">Movil</label>
-              <div class="col-md-6">
-                <input id="celular" type="number" name="celular" class="form-control {{ $errors->has('celular') ? 'is-invalid' : '' }}" value="" title="Tu numero de celular" required placeholder="Tu numero de celular" />
-
-                @if($errors->has('celular'))
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $errors->first('celular') }}</strong>
-                </span>
-                @endif
-              </div>
-            </div>
-
-            <div class="form-group row">
               <label for="descripcion" class="col-md-3 col-form-label text-md-right">Descripción</label>
               <div class="col-md-6">
                 <textarea id="descripcion" type="text" name="descripcion" class="form-control {{ $errors->has('descripcion') ? 'is-invalid' : '' }}" value="" placeholder="P. ej.: Que solicitas, para que lo solicitas…" title="Que solicitas " required ></textarea>
@@ -131,6 +103,32 @@
               <div class="col-md-6 offset-md-3" >
                 <input id="user_id" type="submit" class="btn btn-primary" value="Hacer solicitud" />
 
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="programa" hidden="true"  class="col-md-3 col-form-label text-md-right">Cargo / Rol</label>
+              <div class="col-md-6">
+                <input id="programa" value="{{ Auth::user()->role }}" type="text" name="programa" class="form-control {{ $errors->has('programa') ? 'is-invalid' : '' }}" hidden="true"  required title="Programa que cursas o tu cargo" placeholder="Estudiante o tu cargo" />
+
+                @if($errors->has('programa'))
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $errors->first('programa') }}</strong>
+                </span>
+                @endif
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="celular" hidden="true"  class="col-md-3 col-form-label text-md-right">Movil</label>
+              <div class="col-md-6">
+                <input id="celular" type="number" value="{{ Auth::user()->celular }}" name="celular" class="form-control {{ $errors->has('celular') ? 'is-invalid' : '' }}" value="" title="Tu numero de celular" placeholder="Tu numero de celular" hidden="true"  required />
+
+                @if($errors->has('celular'))
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $errors->first('celular') }}</strong>
+                </span>
+                @endif
               </div>
             </div>
 
