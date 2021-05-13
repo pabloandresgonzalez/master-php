@@ -53,10 +53,14 @@
           {{'Placa: '.$prestamo->placa }} <br>
           {{'Referencia: '.$prestamo->referencia }} <br>
           {{'Salida por: '.$prestamo->salida_por }} <br>
-          Orden de salida: <br>
-          <a href="{{ route('prestamo.orden', ['id' =>$prestamo->id]) }}" target="-blank" style="text-decoration: none;" >
-          <img src="{{ route('prestamo.avatar',['filename'=>$prestamo->image]) }}" class="avatarorden" />
-          </a>
+            @if($prestamo->image)
+            Orden de salida: <br>
+            <a href="{{ route('prestamo.orden', ['id' =>$prestamo->id]) }}" target="-blank" style="text-decoration: none;" >
+            <img src="{{ route('prestamo.avatar',['filename'=>$prestamo->image]) }}" class="avatarorden" />
+            </a>
+            @else
+
+            @endif
           @endif
         </div>
       </div>
