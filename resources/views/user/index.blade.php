@@ -25,9 +25,13 @@
       @foreach($users as $user)
 
       <div class="profile-user">
-      @if(Auth::user()->image)
+      @if($user->image)
         <div class="container-avatar" >
         <img src="{{ route('user.avatar',['filename'=>$user->image]) }}" class="avatar" />
+        </div>
+        @else
+        <div class="container-avatar" >
+        <img src="{{asset('images/user.png')}}"/>
         </div>
         @endif
 

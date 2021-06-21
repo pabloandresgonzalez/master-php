@@ -15,7 +15,7 @@
 
       <div class="profile-user">
 
-        @if(Auth::user()->image)
+        @if($user->image)
         <div class="container-avatar" >
           <img src="{{ route('user.avatar',['filename'=>$user->image]) }}" class="avatar" />
         </div>

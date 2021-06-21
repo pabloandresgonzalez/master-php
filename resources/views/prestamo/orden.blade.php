@@ -12,7 +12,7 @@
 
           </div>
       </div>
-        <a href="{{ route('home') }}" class="btn btn-light btn- activo">Regresar</a>
+        <a href="{{ route('home') }}" class="btn btn-light btn- activo">Inicio</a>
       </div>
 
     </div>
