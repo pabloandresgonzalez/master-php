@@ -4,6 +4,7 @@
   <div class="card-header">
     <div class="prestamo" >
 
+
       <a href="{{route('prestamo.detail', ['id' =>$prestamo->id]) }}" />
       {{ 'Prestamo # '.$prestamo->id }}
       <span class="ciudad">

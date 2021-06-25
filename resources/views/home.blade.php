@@ -41,10 +41,9 @@
 
 
       @foreach($prestamos as $prestamo)
-
       @include('includes.prestamo', ['prestamo'=>$prestamo])
-
       @endforeach
+
 
       <!-- Paginacion -->
       <div class="col-xs">
@@ -56,7 +55,8 @@
 
     </div>
 
-       @if(Auth::user()->role == 'admin')
+
+      @if(Auth::user()->role == 'admin')
       <div class="col-md-3">
         <div class="card shadow" style=" margin-top: 54px;">
           <div class="card-header bg-transparent">
