@@ -9,8 +9,8 @@
           <div class="card-header bg-transparent">
             <div class="row align-items-center">
               <div class="col">
-                <strong>Prestamos Pyme</strong><br>
-                <h7 class="mb-0">Bienvenido! selecciona una opción del menú superior y realiza préstamos de parqueadero para bicicleta o elementos de audiovisuales.</h7>
+                <strong>GPAT</strong><br>
+                <h7 class="mb-0">Bienvenido! En Gestión de préstamos de activos de TI, puedes seleccionar una opción del menú superior y realiza préstamos de parqueadero para bicicleta o elementos de tecnología.</h7>
               </div>
             </div>
           </div>
