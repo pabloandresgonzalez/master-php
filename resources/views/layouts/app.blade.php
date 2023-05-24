@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'PrestamosUCC') }}</title>
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/logoucc.png')}}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/logoucc.jpg')}}" />
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -34,7 +34,7 @@
 
           <div class="logonavbar">
             <a class="navbar-brand" href="{{ url('/') }}">
-            <img class="imgnavbar" src="{{asset('images/logo-ucc.png')}}"/>
+            <img class="imgnavbar" src="{{asset('images/logoucc.jpg')}}"/>
           </a>
           </div>
 
